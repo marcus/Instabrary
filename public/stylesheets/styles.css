@@ -1,0 +1,224 @@
+/* @override 
+	http://localhost:3000/stylesheets/scaffold.css?1191683663
+	http://localhost:3000/stylesheets/styles.css?1192246144
+	http://localhost:3000/stylesheets/styles.css?1192450158
+	http://localhost:3000/stylesheets/styles.css?1192542256
+*/
+
+body {
+	background: #1d1000 url(/images/background.jpg) repeat-x;
+	font: 12px "Lucida Grande", Lucida, Verdana, sans-serif;
+	color: #3e3e3e;
+}
+#page {
+	background: #fff;
+}
+
+a {
+	color: #5c5c5c;
+}
+
+a:hover {
+	color: #000;
+}
+
+h1 {
+	font-size: 14px;
+	font-weight: normal;
+	font-style: normal;
+}
+h2 {
+	font-size: 13px;
+	font-weight: normal;
+	font-style: normal;
+}
+
+#content {
+	background-color: #fff;
+	width: 97%;
+	margin: 10px;
+	padding: 5px;
+}
+
+#logo {
+	margin: 10px;
+}
+
+#user_actions {
+	position: relative;
+	top: -100px;
+	color: #fff;
+	float: right;
+	left: -15px;
+	background-color: #202020;
+	padding: 4px;
+}
+
+#user_actions a {
+	color: #fff;
+	font-weight: bold;
+}
+
+#navbar {
+	width: 438px;
+	height: 26px;
+	background-image: url(/images/navbar.gif);
+	position: absolute;
+	top: 31px;
+	left: 201px;
+	padding-top: 10px;
+	padding-left: 10px;
+}
+
+#navbar, #navbar a, #navbar a:hover {
+	color: #bdab9f;
+	font: normal 15px "Lucida Grande", Lucida, Verdana, sans-serif;
+	text-decoration: none;
+}
+
+#navbar a:hover {
+	text-decoration: underline;
+}
+
+/* @group Set Display */
+
+.set_list {
+	list-style-type: none;
+	margin-bottom: 5px;
+	padding: 5px;
+	margin-left: -40px;
+	border: 1px solid #d0d3c4;
+	background-color: #fdfff0;
+}
+
+.set_thumbnail_cell {
+	width: 100px;
+	text-align: center;
+}
+.set_medium_thumbnail_cell{
+	width: 140px;
+	text-align: center;
+}
+
+.set_details_cell {
+	
+}
+
+.set_title {
+	font-size: 15px;
+}
+
+.set_authors {
+	
+}
+
+.set_pages {
+	
+}
+
+.set_show {
+	
+}
+
+.set_purchase {
+	
+}
+
+/* @end */
+
+/* @group Homepage Display */
+
+.home_set_list {
+	width: 100px;
+	height: 120px;
+	xborder: 1px solid #828282;
+	position: relative;
+	float: left;
+	text-align: center;
+	font-size: 10px;
+}
+
+.home_book_description {
+	
+}
+
+/* @end */
+
+/* @group Forms */
+
+.form_set, .form_set_opt {
+	width: 500px;
+	margin-bottom: 10px;
+	padding: 2px 2px 2px 7px;
+	border: 1px solid #ccc;
+	background-color: #f6fef2;
+	margin-top: 16px;
+}
+.form_set_opt {
+	background-color: #ffefec;
+}
+.label_req, .label_opt {
+	font-size: 11px;
+	color: #444;
+	line-height: 17px;
+	position: relative;
+	bottom: 12px;
+	position: relative;
+	background-color: #fff;
+	display: inline;
+}
+
+.field_req input, .field_opt input, .field_req textarea, .field_opt textarea {
+	width: 450px;
+	border-width: 1px;
+	border-style: solid;
+	padding: 4px;
+	color: #6e6e6e;
+	font: 11px "Lucida Grande", Lucida, Verdana, sans-serif;
+	position: relative;
+	bottom: 7px;
+}
+
+.field_req input, field_req textarea {
+	border-color: #dcdfdf;
+}
+.field_opt input, field_opt textarea {
+	border-color: #d4bcff;
+}
+/* @end */
+
+/* @group Book Detail Page */
+
+.book_detail_image {
+	position: relative;
+	display: inline;
+	float: right;
+}
+.book_pair {
+	margin-bottom: 10px;
+	border: 1px solid #c7c7c7;
+	padding: 5px;
+	width: 500px;
+}
+.book_attribute {
+	color: #8b8b8b;
+	font-size: 10px;
+	bottom: 12px;
+	position: relative;
+	background-color: #fff;
+}
+.book_property {
+	color: #393939;
+	font-size: 13px;
+}
+/* @end */
+#footer {
+	font-size: 0.7em;
+	color: #595959;
+	position: relative;
+	clear: left;
+	text-align: center;
+	padding-top: 15px;
+}
+
+

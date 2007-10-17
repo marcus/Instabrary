@@ -1,0 +1,5 @@
+<h1>Add a book to the set</h1>
+
+<%= error_messages_for :booksearch %>
+
+<%= render :partial => "form", :locals => {:booksearch => @booksearch, :bookset => params[:bookset]} %>

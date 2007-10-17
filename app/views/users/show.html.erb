@@ -1,0 +1,7 @@
+This is what we've got for you:
+<p><strong>Login</strong>: <%= @user.login %></p>
+
+<p><strong>Email</strong>: <%= @user.email %></p>
+
+If it's all good, <%= link_to 'go home', :controller => '/' %>. 
+If not, <%= link_to 'fix it!', edit_user_path(@user) %>.

@@ -1,0 +1,11 @@
+<% form_for booksearch do |f| %>
+	<%= f.hidden_field :bookset_id, :value => bookset %>
+
+	<div class="form_set">
+		<div class="label_req">Enter the title, author, isbn or keyword of the book:</div>
+		<div class="field_req"><%= f.text_field :keyword %></div>
+	</div>
+
+	<div class="form_submit"><%= f.submit "Search" %></div>
+
+<% end %>

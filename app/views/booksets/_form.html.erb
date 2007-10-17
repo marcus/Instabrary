@@ -1,0 +1,32 @@
+<% form_for(bookset) do |f| %>
+  <p>
+		<div class="form_set">
+			<div class="label_req">What would you like to call this set?</div>
+			<div class="field_req"><%= f.text_field :title %></div>
+		</div>
+		<div class="form_set">
+			<div class="label_req">Finish the sentence "By reading these books you will..."</div>
+			<div class="field_req"><%= f.text_area :description, :rows => 2%></div>
+		</div>
+		<div class="form_submit"><%= f.submit "Submit" %> | <%= link_to 'Cancel', booksets_path %></div>
+		
+		
+		<h2>Everything below here is optional</h2>
+
+		<div class="form_set_opt">
+			<div class="label_opt">If you didn't compile this set, put the name of whoever did:</div>
+			<div class="field_opt"><%= f.text_field :author %></div>
+		</div>
+		<div class="form_set_opt">
+			<div class="label_opt">If you found this list on another site (or in a book) but the name here:</div>
+			<div class="field_opt"><%= f.text_field :source_name %></div>
+		</div>
+		<div class="form_set_opt">
+			<div class="label_opt">If it came from a website, put the link here:</div>
+			<div class="field_opt"><%= f.text_field :source_uri %></div>
+		</div>
+		
+
+		<div class="form_submit"><%= f.submit "Submit" %> | <%= link_to 'Cancel', booksets_path %></div>
+  </p>
+<% end %>

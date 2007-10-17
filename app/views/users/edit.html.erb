@@ -1,0 +1,15 @@
+<% form_for :user, :url => user_path(@user), :html => { :method => :put } do |f| %>
+	<p>You can use the form below to modify your profile:</p>
+	<%= error_messages_for :user %>
+
+	<p><label for="email">Email</label><br/>
+	<%= f.text_field :email %></p>
+
+	<p><label for="password">Password (leave blank to keep it the same)</label><br/>
+	<%= f.password_field :password, :value => '' %></p>
+
+	<p><label for="password_confirmation">Confirm Password</label><br/>
+	<%= f.password_field :password_confirmation %></p>
+
+	<p><%= submit_tag 'Modify Profile' %></p>
+<% end %>

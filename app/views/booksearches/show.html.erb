@@ -1,0 +1,32 @@
+<p>
+  <b>Search results for <%= @booksearch.keyword %></b>. Click "Add" to add a book to your set. Don't see what you're looking for? Try <%= link_to "searching again", :action => "new", :bookset => @booksearch.bookset_id %>.
+</p>
+<p></p>
+
+<% if @results.length == 0 %>
+	Sorry, we didn't find anything matching that search. Use the link above to try again.
+<% else %>
+
+<ul>
+	<% @results.each do |book| %>
+		<li class="set_list">
+			<table border="0">
+				<tr>
+					<td class="set_medium_thumbnail_cell">
+					<% if book.medium_image %>
+							<%= image_tag book.medium_image, :height => book.medium_image_height, :width =>	book.medium_image_width, :class => 'set_thumbnail' %>
+					<% end %>
+					</td>
+					<td class="set_details_cell">
+						<div class="set_title"><%= book.title %></div>
+						<div class="set_authors"><%= book.authors %></div>
+						<% if book.pages %><div class="set_pages"><%= book.pages %> Pages</div><% end %>
+						<%= link_to "Add", {:controller => "listings", :book => book.id, :bookset => @booksearch.bookset_id}, :method => :post %>
+					</td>
+				</tr>
+			</table>
+		</li>
+	<% end %>
+</ul>
+
+<% end %>

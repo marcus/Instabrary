@@ -1,0 +1,20 @@
+<h1>Welcome to Instabrary</h1>
+<p>Books are better in sets.</p>
+<p>Have you ever wondered what books an economist would recommend to someone who wanted to get a basic grasp of the US Economy? What about which books were in Benjamin Franklin's library? Which books you should read (and in what order) to understand string theory?</p>
+
+<p>No?</p>
+
+<p>Do you think books are beautiful? Smell nice? Got shelf space to fill?</p>
+	
+<p>Instabrary lets you find and create book sets ranging from educational to just plain good looking making it easy for you to find books on a topic.</p>
+
+<h2>Recently Created Sets</h2>
+
+<% @booksets.each do |bookset| %>
+	<% if bookset.books[0].small_image %>
+		<div class="home_set_list">
+			<%= link_to image_tag(bookset.books[0].small_image, :height => bookset.books[0].small_image_height, :width => bookset.books[0].small_image_width), :controller => "booksets", :action => "show", :id => bookset %>
+			<br /><%= bookset.title %> <br /> <%= bookset.books.length %> books
+		</div>
+	<% end %>
+<% end %>

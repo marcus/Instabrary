@@ -1,0 +1,56 @@
+<% if @book.large_image == "It's not this" %>
+	<%= image_tag @book.large_image, :height => @book.large_image_height, :width => @book.large_image_width, :class => "book_detail_image" %>
+<% elsif @book.medium_image%>
+	<%= link_to (image_tag @book.medium_image, :height => @book.medium_image_height, :width => @book.medium_image_width, :class => "book_detail_image", :border => 0), @book.link %>
+<% end %>
+
+<div class="book_pair">
+	<span class="book_attribute">Title:</span>
+	<div class="book_property"><%=h @book.title %></div>
+</div>
+
+<div class="book_pair">
+	<span class="book_attribute">Author:</span>
+	<div class="book_property"><%=h @book.authors %></div>
+</div>
+
+<div class="book_pair">
+	<span class="book_attribute">ISBN:</span>
+	<div class="book_property"><%=h @book.isbn %></div>
+</div>
+
+<div class="book_pair">
+	<span class="book_attribute">Pages:</span>
+	<div class="book_property"><%=h @book.pages %></div>
+</div>
+
+<div class="book_pair">
+	<span class="book_attribute">Publisher:</span>
+	<div class="book_property"><%=h @book.publisher %></div>
+</div>
+
+<div class="book_pair">
+	<span class="book_attribute">Binding:</span>
+	<div class="book_property"><%=h @book.binding %></div>
+</div>
+
+<div class="book_pair">
+	<span class="book_attribute">Label:</span>
+	<div class="book_property"><%=h @book.label %></div>
+</div>
+
+<div class="book_pair">
+	<span class="book_attribute">Edition:</span>
+	<div class="book_property"><%=h @book.edition %></div>
+</div>
+
+<div class="book_pair">
+	<span class="book_attribute">Release Date:</span>
+	<div class="book_property"><%=h @book.release_date %></div>
+</div>
+
+<div class="book_pair">
+	<span class="book_attribute">Amazon.com Editorial Review:</span>
+	<div class="book_property"><%= @book.editorial_review %></div>
+</div>
+
