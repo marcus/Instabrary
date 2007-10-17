@@ -6,9 +6,10 @@ ActiveRecord::Schema.define(:version => 10) do
 
   create_table "books", :force => true do |t|
     t.string   "title"
-    t.integer  "isbn"
+    t.string   "isbn",                    :limit => 50
     t.string   "authors"
     t.text     "editorial_review"
+    t.string   "editorial_review_source"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "affiliate_link"
@@ -16,19 +17,19 @@ ActiveRecord::Schema.define(:version => 10) do
     t.string   "medium_image"
     t.string   "large_image"
     t.integer  "pages"
-    t.string   "binding",             :limit => 50
+    t.string   "binding",                 :limit => 50
     t.string   "label"
-    t.string   "edition",             :limit => 50
+    t.string   "edition",                 :limit => 50
     t.string   "publisher"
     t.date     "release_date"
-    t.integer  "list_price",          :limit => 10
-    t.integer  "lowest_new_price",    :limit => 10
-    t.integer  "small_image_height",  :limit => 3
-    t.integer  "small_image_width",   :limit => 3
-    t.integer  "medium_image_height", :limit => 3
-    t.integer  "medium_image_width",  :limit => 3
-    t.integer  "large_image_height",  :limit => 3
-    t.integer  "large_image_width",   :limit => 3
+    t.integer  "list_price",              :limit => 10
+    t.integer  "lowest_new_price",        :limit => 10
+    t.integer  "small_image_height",      :limit => 3
+    t.integer  "small_image_width",       :limit => 3
+    t.integer  "medium_image_height",     :limit => 3
+    t.integer  "medium_image_width",      :limit => 3
+    t.integer  "large_image_height",      :limit => 3
+    t.integer  "large_image_width",       :limit => 3
   end
 
   create_table "booksearches", :force => true do |t|
@@ -36,13 +37,20 @@ ActiveRecord::Schema.define(:version => 10) do
     t.integer  "bookset_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "user_id"
   end
 
   create_table "booksets", :force => true do |t|
     t.string   "title"
+    t.integer  "user_id"
     t.text     "description"
+    t.string   "author",          :limit => 100
+    t.string   "source_name"
+    t.string   "source_uri"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "knowledge_level", :limit => 50
+    t.string   "qualifications"
   end
 
   create_table "listings", :force => true do |t|
