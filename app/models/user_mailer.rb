@@ -17,7 +17,7 @@ class UserMailer < ActionMailer::Base
   protected
     def setup_email(user)
       @recipients  = "#{user.email}"
-      @from        = "admin@instabrary.com"
+      @from        = "activation@instabrary.com"
       @subject     = "Instabrary"
       @sent_on     = Time.now
       @body[:user] = user

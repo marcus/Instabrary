@@ -8,7 +8,7 @@ class BooksearchesController < ApplicationController
     search_results = search_amazon(@booksearch.keyword)
     @results = Array.new
     
-    return if search_results.length == 0
+    return if !search_results
     
     search_results.each do |result|
       #TODO - Make sure a bad result doesn't clobber a good one.
