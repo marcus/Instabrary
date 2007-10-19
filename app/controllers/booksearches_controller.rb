@@ -25,7 +25,7 @@ class BooksearchesController < ApplicationController
       book.label = result.get('label')
       book.edition = result.get('edition')
       book.publisher = result.get('publisher')
-      book.release_date = result.get('releasedate')
+      book.publication_date = result.get('publicationdate')
       book.list_price = result.get('listprice/amount')
       book.lowest_new_price = result.get('lowestnewprice/amount')
       book.small_image_height = result.get('smallimage/height')

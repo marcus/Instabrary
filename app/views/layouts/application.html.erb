@@ -8,19 +8,23 @@
   <%= stylesheet_link_tag 'scaffold', 'styles' %>
 </head>
 <body>
-<%= link_to (image_tag "logo.gif", :border => 0, :id => 'logo'), :controller => "home" %>
-<div id="user_actions">
-<% if session[:user] %>
-	<%= link_to "My Profile", "/profile"%> | <%= link_to "Log Out", "/logout"%>
-<% else %>
-	<%= link_to "Log in", "/login" %> | <%= link_to "Sign up!", "/signup" %>
-<% end %>
-</div>
+	<div id="user_actions">
+	<% if session[:user] %>
+		<%= link_to "My Profile", "/profile"%> | <%= link_to "Log Out", "/logout"%>
+	<% else %>
+		<%= link_to "Log in", "/login" %> | <%= link_to "Sign up!", "/signup" %>
+	<% end %>
+	</div>
+
+
+<%= link_to (image_tag "logo.gif", :border => 0, :id => 'logo', :alt => "Instabrary"), :controller => "home" %>
 
 <div id="navbar"><%= link_to "Add a set", :controller => "booksets", :action => :new %> | 
-					  <%= link_to "Show all sets", :controller => "booksets" %> | 
+					  <%= link_to "Show all sets", :controller => "booksets" %> 
 					  <% if session[:user]%>
-							<%= link_to "Show my sets", :controller => "booksets", :user => session[:user] %>
+							 | <%= link_to "Show my sets", :controller => "booksets", :user => session[:user] %>
+					  <% else %>
+							 | <%= link_to "Sign up!", :controller => "users", :action => "new"%>
 					  <% end %>
 					  </div>
 <div id="page">	

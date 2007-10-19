@@ -3,6 +3,7 @@
 	http://localhost:3000/stylesheets/styles.css?1192246144
 	http://localhost:3000/stylesheets/styles.css?1192450158
 	http://localhost:3000/stylesheets/styles.css?1192542256
+	http://localhost:3000/stylesheets/styles.css?1192631569
 */
 
 body {
@@ -46,7 +47,6 @@ h2 {
 
 #user_actions {
 	position: relative;
-	top: -100px;
 	color: #fff;
 	float: right;
 	left: -15px;

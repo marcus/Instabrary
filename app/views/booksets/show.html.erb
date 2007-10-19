@@ -1,7 +1,9 @@
 <p>
-<h1><%= @bookset.title %></h1><span class="set_by">by <%= link_to @set_creator.login, :action => "index", :user => @set_creator.id %></span>
+<h1><%= @bookset.title %></h1>
 </p>
-<p><%= @bookset.description %></p>
+<p><%= @bookset.description %><br />
+<span class="set_by">by <%= link_to @set_creator.login, :action => "index", :user => @set_creator.id %></span>	
+</p>
 
 <% if session[:user] == @bookset.user.id %>
 <p><%= link_to "Edit this set", edit_bookset_path(@bookset) %> | <%=link_to "Add a book to this set", "#add"%></p>
