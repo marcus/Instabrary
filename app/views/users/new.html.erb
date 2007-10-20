@@ -1,6 +1,7 @@
 <%= error_messages_for :user %>
 
 <p>This will just take a second. After registering, you'll be logged in. To log in next time you will need to click a link in the email we send you.
+	<br /><%= link_to "Already a member?", :controller => "sessions", :action => :new %>
 </p>
 
 <% form_for :user, :url => users_path do |f| -%>

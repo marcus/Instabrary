@@ -5,6 +5,7 @@
 	http://localhost:3000/stylesheets/styles.css?1192542256
 	http://localhost:3000/stylesheets/styles.css?1192631569
 	http://localhost:3000/stylesheets/styles.css?1192736409
+	http://localhost:3000/stylesheets/styles.css?1192853296
 */
 
 body {
@@ -15,7 +16,8 @@ body {
 
 #logo {
 	position: absolute;
-	top: 38px;
+	top: 33px;
+	display: inline;
 }
 
 #page {
@@ -155,8 +157,8 @@ h2 {
 /* @group Homepage Display */
 
 .home_set_list {
-	width: 100px;
-	height: 120px;
+	width: 170px;
+	height: 200px;
 	xborder: 1px solid #828282;
 	position: relative;
 	float: left;

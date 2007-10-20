@@ -3,5 +3,5 @@ class Bookset < ActiveRecord::Base
   has_many :listings, :dependent => :destroy
   has_many :books, :through => :listings
   
-  validates_presence_of     :title
+  validates_presence_of     :title, :description
 end
