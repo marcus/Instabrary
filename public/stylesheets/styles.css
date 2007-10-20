@@ -4,15 +4,84 @@
 	http://localhost:3000/stylesheets/styles.css?1192450158
 	http://localhost:3000/stylesheets/styles.css?1192542256
 	http://localhost:3000/stylesheets/styles.css?1192631569
+	http://localhost:3000/stylesheets/styles.css?1192736409
 */
 
 body {
-	background: #1d1000 url(/images/background.jpg) repeat-x;
+	background: #fff url(/images/background.jpg) repeat-x;
 	font: 12px "Lucida Grande", Lucida, Verdana, sans-serif;
 	color: #3e3e3e;
 }
+
+#logo {
+	position: absolute;
+	top: 38px;
+}
+
 #page {
-	background: #fff;
+	width: 980px;
+	margin: 0 auto;
+	background: url(/images/main-background.gif);
+	position: relative;
+	top: 92px;
+}
+
+#content {
+	width: 920px;
+	padding: 5px;
+	float: left;
+	position: relative;
+	right: -25px;
+	top: -10px;
+}
+
+#page-top {
+	width: 980px;
+	height: 15px;
+	background: url(/images/page-top.jpg) no-repeat;
+	top: -7px;
+	position: relative;
+}
+
+#navbar {
+	width: 438px;
+	height: 26px;
+	position: absolute;
+	top: 45px;
+	left: 201px;
+	padding-top: 10px;
+	padding-left: 10px;
+}
+
+#user_actions a:hover {
+	text-decoration: underline;
+}
+
+#navbar, #navbar a, #navbar a:hover {
+	color: #bdab9f;
+	font: normal 15px "Lucida Grande", Lucida, Verdana, sans-serif;
+	text-decoration: none;
+}
+
+#navbar a:hover {
+	text-decoration: underline;
+}
+
+#user_actions {
+	position: relative;
+	color: #444;
+	float: right;
+	left: -15px;
+	background-color: #fff;
+	padding: 3px;
+	top: -6px;
+	border: 1px solid #b4b4b4;
+}
+
+#user_actions a {
+	color: #444;
+	font-weight: normal;
+	text-decoration: none;
 }
 
 a {
@@ -28,56 +97,11 @@ h1 {
 	font-weight: normal;
 	font-style: normal;
 }
+
 h2 {
 	font-size: 13px;
 	font-weight: normal;
 	font-style: normal;
-}
-
-#content {
-	background-color: #fff;
-	width: 97%;
-	margin: 10px;
-	padding: 5px;
-}
-
-#logo {
-	margin: 10px;
-}
-
-#user_actions {
-	position: relative;
-	color: #fff;
-	float: right;
-	left: -15px;
-	background-color: #202020;
-	padding: 4px;
-}
-
-#user_actions a {
-	color: #fff;
-	font-weight: bold;
-}
-
-#navbar {
-	width: 438px;
-	height: 26px;
-	background-image: url(/images/navbar.gif);
-	position: absolute;
-	top: 31px;
-	left: 201px;
-	padding-top: 10px;
-	padding-left: 10px;
-}
-
-#navbar, #navbar a, #navbar a:hover {
-	color: #bdab9f;
-	font: normal 15px "Lucida Grande", Lucida, Verdana, sans-serif;
-	text-decoration: none;
-}
-
-#navbar a:hover {
-	text-decoration: underline;
 }
 
 /* @group Set Display */
@@ -89,13 +113,15 @@ h2 {
 	margin-left: -40px;
 	border: 1px solid #d0d3c4;
 	background-color: #fdfff0;
+	width: 900px;
 }
 
 .set_thumbnail_cell {
 	width: 100px;
 	text-align: center;
 }
-.set_medium_thumbnail_cell{
+
+.set_medium_thumbnail_cell {
 	width: 140px;
 	text-align: center;
 }
@@ -154,9 +180,11 @@ h2 {
 	background-color: #f6fef2;
 	margin-top: 16px;
 }
+
 .form_set_opt {
 	background-color: #ffefec;
 }
+
 .label_req, .label_opt {
 	font-size: 11px;
 	color: #444;
@@ -182,9 +210,11 @@ h2 {
 .field_req input, field_req textarea {
 	border-color: #dcdfdf;
 }
+
 .field_opt input, field_opt textarea {
 	border-color: #d4bcff;
 }
+
 /* @end */
 
 /* @group Book Detail Page */
@@ -194,12 +224,14 @@ h2 {
 	display: inline;
 	float: right;
 }
+
 .book_pair {
 	margin-bottom: 10px;
 	border: 1px solid #c7c7c7;
 	padding: 5px;
 	width: 500px;
 }
+
 .book_attribute {
 	color: #8b8b8b;
 	font-size: 10px;
@@ -207,18 +239,20 @@ h2 {
 	position: relative;
 	background-color: #fff;
 }
+
 .book_property {
 	color: #393939;
 	font-size: 13px;
 }
+
 /* @end */
+
 #footer {
-	font-size: 0.7em;
+	font-size: 0.9em;
 	color: #595959;
 	position: relative;
 	clear: left;
 	text-align: center;
 	padding-top: 15px;
+	background: #fff url(/images/page-bottom.gif) no-repeat;
 }
-
-
