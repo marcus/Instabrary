@@ -8,7 +8,7 @@ class UsersController < ApplicationController
     @user.save!
     self.current_user = @user
     redirect_back_or_default('/')
-    flash[:notice] = "Thanks for signing up! You're logged in now. To log in again you'll need to click the link that was sent to you by email."
+    flash[:notice] = "Thanks for signing up! You're logged in now. To log in again you'll need to click the link that was sent to you by email. Check your spam folder, our activations have been known to end up in there."
   rescue ActiveRecord::RecordInvalid
     render :action => 'new'
   end

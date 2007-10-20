@@ -1,8 +1,10 @@
+require 'lib/smtp_tls'
+
 ActionMailer::Base.smtp_settings = {
-  :address => "mail.instabrary.com",
-  :port => 25, #587
+  :address => "smtp.gmail.com",
+  :port => "587",
   :domain => "instabrary.com",
-  :authentication => :login,
+  :authentication => :plain,
   :user_name => "activation@instabrary.com",
   :password => "act11vation"
 }
