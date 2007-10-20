@@ -6,15 +6,9 @@
     <th>Isbn</th>
 	<th>Author</th>
   </tr>
-
-<% for book in @books %>
-  <tr>
-    <td><%=h book.title %></td>
-    <td><%=h book.isbn %></td>
-	<td><%=h book.authors %></td>
-    <td><%= link_to 'Show', book %></td>
-  </tr>
-<% end %>
+<%= render :partial => 'book', :collection => @books %>
 </table>
+
+<%= will_paginate @books %>
 
 <br />

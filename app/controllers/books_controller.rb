@@ -3,7 +3,9 @@ class BooksController < ApplicationController
   # GET /books.xml
   def index
     @books = Book.find(:all)
-
+    @books = Book.paginate :page => params[:page]
+    #@posts = Post.paginate :page => params[:page]
+    
     respond_to do |format|
       format.html # index.html.erb
       format.xml  { render :xml => @books }
