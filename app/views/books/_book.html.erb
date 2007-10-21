@@ -1,6 +1,6 @@
   <tr>
-    <td><%=h book.title %></td>
-    <td><%=h book.isbn %></td>
+    <td><%=link_to h(book.title), book %></td>
 	<td><%=h book.authors %></td>
-    <td><%= link_to 'Show', book %></td>
+	<td><%=h book.isbn %></td>
+   
   </tr>
