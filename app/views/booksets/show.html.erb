@@ -2,16 +2,33 @@
 <h1><%= @bookset.title %></h1>
 </p>
 <p><%= @bookset.description %><br />
-<span class="set_by">by <%= link_to @set_creator.login, :action => "index", :user => @set_creator.id %></span>	
+<span class="set_by">by <%= link_to @set_creator.login, :action => "index", :user => @set_creator.id %><% if @bookset.author %>. Originally by <%= @bookset.author %><% end %>
+<% if @bookset.source_uri %>
+	<%= link_to @bookset.source_name, @bookset.source_uri %>
+<% else %>
+	<% if @bookset.source_name %> -- <%= @bookset.source_name %><% end %>
+<% end %>
+</span>
 </p>
 
 <% if session[:user] == @bookset.user.id %>
 <p><%= link_to "Edit this set", edit_bookset_path(@bookset) %> | <%=link_to "Add a book to this set", "#add"%></p>
 <% end %>
+
+<div id="book_set_details">
+	<h2>Book Set Statistics</h2>
+	<div id="book_set_details_content">
+		<p class="book_set_details_stat"><%= @total_books %> Books</p>
+		<p class="book_set_details_stat"><%= @total_pages%> Total Pages</p>
+		<p class="book_set_details_stat">About <%= @total_pages * 250 %> Words</p>
+		<p class="book_set_details_stat">About <%= (@total_pages * 250)/300/60 %> Hours to Read the Entire Book Set</p>
+		<p class="book_set_details_stat">That's around <%= (@total_pages * 250)/300/60/7 %> Weeks if you read an hour a day.</p>
+	</div>
+</div>
+
 <ul>
 <% @bookset.listings.each do |listing| %>
 	<li class="set_list">
-		<!-- if bookset is larger than 10 books use small images? -->
 		<table border="0">
 			<tr>
 				<td class="set_thumbnail_cell">

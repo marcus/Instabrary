@@ -21,8 +21,17 @@ class BooksetsController < ApplicationController
   # GET /booksets/1.xml
   def show
     @page_title = "#{@bookset.title} on Instabrary"
-    @set_creator = @bookset.user
     @booksearch = Booksearch.new
+    @total_books = @bookset.books.length
+    @total_pages = @bookset.books.inject(0) do |sum, book|
+      if book.pages
+        sum += book.pages
+      end
+      sum
+    end
+    @set_creator = @bookset.user
+    
+    
     respond_to do |format|
       format.html # show.html.erb
       format.xml  { render :xml => @bookset }

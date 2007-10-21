@@ -6,6 +6,7 @@
 	http://localhost:3000/stylesheets/styles.css?1192631569
 	http://localhost:3000/stylesheets/styles.css?1192736409
 	http://localhost:3000/stylesheets/styles.css?1192853296
+	http://localhost:3000/stylesheets/styles.css?1192886740
 */
 
 body {
@@ -107,7 +108,26 @@ h2 {
 }
 
 /* @group Set Display */
-
+#book_set_details {
+	border: 1px solid #c4c4c4;
+	width: 240px;
+	position: relative;
+	float: right;
+	padding: 5px;
+	background-color: #e6f8f8;
+}
+#book_set_details h2 {
+	top: -33px;
+	position: relative;
+}
+#book_set_details_content {
+	position: relative;
+	top: -17px;
+}
+.book_set_details_stat {
+	font: 16px "Helvetica Neue", Arial, Helvetica, Geneva, sans-serif;
+	color: #007e7f;
+}
 .set_list {
 	list-style-type: none;
 	margin-bottom: 5px;
@@ -115,7 +135,7 @@ h2 {
 	margin-left: -40px;
 	border: 1px solid #d0d3c4;
 	background-color: #fdfff0;
-	width: 900px;
+	width: 650px;
 }
 
 .set_thumbnail_cell {
