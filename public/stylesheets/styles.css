@@ -108,7 +108,7 @@ h2 {
 }
 
 /* @group Set Display */
-#book_set_details {
+#book_set_details, #book_details {
 	border: 1px solid #c4c4c4;
 	width: 240px;
 	position: relative;
@@ -116,15 +116,15 @@ h2 {
 	padding: 5px;
 	background-color: #e6f8f8;
 }
-#book_set_details h2 {
+#book_set_details h2, #book_details  h2 {
 	top: -33px;
 	position: relative;
 }
-#book_set_details_content {
+#book_set_details_content, #book_details_content {
 	position: relative;
 	top: -17px;
 }
-.book_set_details_stat {
+.book_set_details_stat, .book_details_stat {
 	font: 16px "Helvetica Neue", Arial, Helvetica, Geneva, sans-serif;
 	color: #007e7f;
 }
@@ -243,8 +243,6 @@ h2 {
 
 .book_detail_image {
 	position: relative;
-	display: inline;
-	float: right;
 }
 
 .book_pair {

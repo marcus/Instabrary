@@ -1,8 +1,17 @@
-<% if @book.large_image == "It's not this" %>
-	<%= image_tag @book.large_image, :height => @book.large_image_height, :width => @book.large_image_width, :class => "book_detail_image" %>
-<% elsif @book.medium_image%>
-	<%= link_to (image_tag @book.medium_image, :height => @book.medium_image_height, :width => @book.medium_image_width, :class => "book_detail_image", :border => 0), @book.link %>
-<% end %>
+<div id="book_details">
+	<h2>This book on Instabrary</h2>
+	<div id="book_details_content">
+			<%= link_to (image_tag @book.medium_image, :height => @book.medium_image_height, :width => @book.medium_image_width, :class => "book_detail_image", :border => 0), @book.link %>
+			<p class="book_details_stat">
+				This book belongs to the following book set(s):
+				<ul>
+				<% @book.booksets.each do |set| %>
+					<li><%= link_to set.title, :controller=>"booksets", :action => :show, :id => set %></li>
+				<% end %>
+				</ul>
+			</p>
+	</div>
+</div>
 
 <div class="book_pair">
 	<span class="book_attribute">Title:</span>

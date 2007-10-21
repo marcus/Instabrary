@@ -3,8 +3,8 @@
 <% @booksets.each do |bookset| %>
 	<div class="home_set_list">
 		<% if bookset.books[0] %>
-			<% if bookset.books[0].small_image %>
-					<%= link_to image_tag(bookset.books[0].small_image, :height => bookset.books[0].small_image_height, :width => bookset.books[0].small_image_width), :controller => "booksets", :action => "show", :id => bookset %>
+			<% if bookset.books[0].medium_image %>
+					<%= link_to image_tag(bookset.books[0].medium_image, :height => bookset.books[0].medium_image_height, :width => bookset.books[0].medium_image_width), :controller => "booksets", :action => "show", :id => bookset %>
 			<% end %>
 		<% end %>
 		<br /><%= link_to bookset.title, :controller => "booksets", :action => :show, :id => bookset %> <br /> <%= bookset.books.length %> books

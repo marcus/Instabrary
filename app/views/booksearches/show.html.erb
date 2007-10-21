@@ -1,5 +1,5 @@
 <p>
-  <b>Search results for <%= @booksearch.keyword %></b>. Click "Add" to add a book to your set. Don't see what you're looking for? Try <%= link_to "searching again", :action => "new", :bookset => @booksearch.bookset_id %>.
+  <b>Search results for <%=h @booksearch.keyword %></b>. Click "Add" to add a book to your set. Don't see what you're looking for? Try <%= link_to "searching again", :action => "new", :bookset => @booksearch.bookset_id %>.
 </p>
 <p></p>
 
@@ -21,7 +21,7 @@
 						<div class="set_title"><%= book.title %></div>
 						<div class="set_authors"><%= book.authors %></div>
 						<% if book.pages %><div class="set_pages"><%= book.pages %> Pages</div><% end %>
-						<%= link_to "Add", {:controller => "listings", :book => book.id, :bookset => @booksearch.bookset_id}, :method => :post %>
+						<strong><%= link_to "Add this book to the set", {:controller => "listings", :book => book.id, :bookset => @booksearch.bookset_id}, :method => :post %></strong>
 					</td>
 				</tr>
 			</table>
