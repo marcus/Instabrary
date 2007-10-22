@@ -1,7 +1,7 @@
 <div id="book_details">
 	<h2>This book on Instabrary</h2>
 	<div id="book_details_content">
-			<% if @book.medium_image%>
+			<% if @book.medium_image %>
 				<%= link_to (image_tag @book.medium_image, :height => @book.medium_image_height, :width => @book.medium_image_width, :class => "book_detail_image", :border => 0), @book.link %>
 			<% end %>
 			<% if @book.booksets.length != 0 %>
@@ -28,42 +28,29 @@
 </div>
 
 <div class="book_pair">
-	<span class="book_attribute">ISBN:</span>
-	<div class="book_property"><%=h @book.isbn %></div>
-</div>
-
-<div class="book_pair">
-	<span class="book_attribute">Pages:</span>
-	<div class="book_property"><%=h @book.pages %></div>
-</div>
-
-<div class="book_pair">
-	<span class="book_attribute">Publisher:</span>
-	<div class="book_property"><%=h @book.publisher %></div>
-</div>
-
-<div class="book_pair">
-	<span class="book_attribute">Binding:</span>
-	<div class="book_property"><%=h @book.binding %></div>
-</div>
-
-<div class="book_pair">
-	<span class="book_attribute">Label:</span>
-	<div class="book_property"><%=h @book.label %></div>
-</div>
-
-<div class="book_pair">
-	<span class="book_attribute">Edition:</span>
-	<div class="book_property"><%=h @book.edition %></div>
-</div>
-
-<div class="book_pair">
 	<span class="book_attribute">Publication Date:</span>
 	<div class="book_property"><%=h @book.publication_date %></div>
 </div>
 
 <div class="book_pair">
-	<span class="book_attribute">Amazon.com Editorial Review:</span>
-	<div class="book_property"><%= @book.editorial_review %></div>
+	<span class="book_attribute">Pages:</span>
+	<div class="book_property"><%=h @book.pages %><% if @book.binding %>, (<%=h @book.binding %>)<% end%></div>
 </div>
 
+<div class="book_pair">
+	<span class="book_attribute">Publisher:</span>
+	<div class="book_property"><%=h @book.publisher %><% if @book.label %>, (<%=h @book.label %>)<% end%></div>
+</div>
+
+<div class="book_pair">
+		<span class="book_attribute">ISBN:</span>
+		<div class="book_property"><%=h @book.isbn %><% if @book.edition %>, Edition <%=h @book.edition %><% end %></div>
+</div>
+
+
+<% if @book.editorial_review %>
+	<div class="book_pair">
+		<span class="book_attribute">Amazon.com Editorial Review:</span>
+		<div class="book_property"><%= @book.editorial_review %></div>
+	</div>
+<% end %>

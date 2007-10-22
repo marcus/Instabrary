@@ -12,7 +12,7 @@ class BooksearchesController < ApplicationController
     
     search_results.each do |result|
       #TODO - Make sure a bad result doesn't clobber a good one.
-      book = Book.find_or_create_by_isbn_and_title(result.get('asin'), result.get('title'))
+      book = Book.find_or_initialize_by_isbn_and_title(result.get('asin'), result.get('title'))
       book.authors = result.get_array('author')*", "
       book.editorial_review_source = result.get_unescaped('editorialreview/source')
       book.editorial_review = result.get_unescaped('editorialreview/content')
@@ -79,7 +79,7 @@ class BooksearchesController < ApplicationController
   private
   
   def search_amazon(keyword)
-    results = Amazon::Ecs.item_search(keyword, :response_group => 'Medium', :sort => 'relevancerank')
+    results = Amazon::Ecs.item_search(keyword, :response_group => 'ListmaniaLists,Medium', :sort => 'relevancerank')
     if results.has_error?
       return
     end
