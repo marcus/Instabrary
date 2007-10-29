@@ -18,6 +18,8 @@ class BooksController < ApplicationController
     @book = Book.find(params[:id])
     @page_title = "#{@book.title} on Instabrary"
 
+    @book_statuses = @book.user_statuses(session[:user]) if session[:user]
+    
     respond_to do |format|
       format.html # show.html.erb
       format.xml  { render :xml => @book }

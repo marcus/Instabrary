@@ -1,5 +1,7 @@
 ActionController::Routing::Routes.draw do |map|
-  map.resources :books, :booksearches, :booksets, :users, :sessions, :listings
+  map.resources 
+
+  map.resources :books, :booksearches, :booksets, :users, :sessions, :listings, :statuses#, :book_statuses
   #easier routes for restful_authentication
   map.signup '/signup', :controller => 'users', :action => 'new'
   map.login '/login', :controller => 'sessions', :action => 'new'

@@ -1,6 +1,6 @@
 <div id="book_details">
 	<h2>This book on Instabrary</h2>
-	<div id="book_details_content">
+	<div id="book_details_content">		
 			<% if @book.medium_image %>
 				<%= link_to (image_tag @book.medium_image, :height => @book.medium_image_height, :width => @book.medium_image_width, :class => "book_detail_image", :border => 0), @book.link %>
 			<% end %>
@@ -14,6 +14,11 @@
 					</ul>
 				</p>
 			<% end %>
+			<div id="statuses">
+			<% if session[:user ]%>
+					<%= render :partial => "statuses", :locals => { :book_statuses => @book_statuses }%>
+			<% end %>
+			</div>
 	</div>
 </div>
 

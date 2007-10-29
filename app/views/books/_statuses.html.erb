@@ -1,0 +1,11 @@
+<h3>This book and me:</h3>
+<% for book_status in book_statuses %>
+
+	<%= link_to_remote book_status.status.name,
+		:url => { :controller => 'book_statuses', :action => 'update', :book_status => book_status },
+		:loading => 'show_loader()', :complete => 'hide_loader()'  %>
+	
+	<%= book_status.active %>
+<br />
+
+<% end %>

@@ -276,3 +276,34 @@ h2 {
 	padding-top: 15px;
 	background: #fff url(/images/page-bottom.gif) no-repeat;
 }
+
+
+  .pagination {
+    padding: 3px;
+    margin: 3px;
+  }
+  .pagination a {
+    padding: 2px 5px 2px 5px;
+    margin: 2px;
+    border: 1px solid #aaaadd;
+    text-decoration: none;
+    color: #333;
+  }
+  .pagination a:hover, .pagination a:active {
+    border: 1px solid #111;
+    color: #000;
+  }
+  .pagination span.current {
+    padding: 2px 5px 2px 5px;
+    margin: 2px;
+    border: 1px solid #321;
+    font-weight: bold;
+    background-color: #321	;
+    color: #FFF;
+  }
+  .pagination span.disabled {
+    padding: 2px 5px 2px 5px;
+    margin: 2px;
+    border: 1px solid #eee;
+    color: #ddd;
+  }
