@@ -2,7 +2,7 @@
 # migrations feature of ActiveRecord to incrementally modify your database, and
 # then regenerate this schema definition.
 
-ActiveRecord::Schema.define(:version => 2) do
+ActiveRecord::Schema.define(:version => 3) do
 
   create_table "book_statuses", :force => true do |t|
     t.integer  "user_id"
@@ -26,7 +26,7 @@ ActiveRecord::Schema.define(:version => 2) do
     t.string   "medium_image"
     t.string   "large_image"
     t.integer  "pages"
-    t.string   "binding",                 :limit => 50
+    t.string   "book_binding",            :limit => 50
     t.string   "label"
     t.string   "edition",                 :limit => 50
     t.string   "publisher"
