@@ -21,7 +21,7 @@ class BooksearchesController < ApplicationController
       book.medium_image = result.get('mediumimage/url')
       book.small_image = result.get('smallimage/url')
       book.pages = result.get('numberofpages')
-      book.binding = result.get('binding')
+      book.book_binding = result.get('binding')
       book.label = result.get('label')
       book.edition = result.get('edition')
       book.publisher = result.get('publisher')
