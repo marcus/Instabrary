@@ -31,7 +31,7 @@ Rails::Initializer.run do |config|
   # If you change this key, all old sessions will become invalid!
   config.action_controller.session = {
     :session_key => '_Instabrary_',
-    :secret      => 'd7a47c48d2fec4a3e3d3c'
+    :secret      => 'd7a47c48d2fec4a3e3d3cro0forojdlvudfhrk445555r543e'
   }
 
   # Use the database for sessions instead of the cookie-based default,
