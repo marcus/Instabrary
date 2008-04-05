@@ -1,15 +1,18 @@
 class UsersController < ApplicationController
   # render new.rhtml
   def new
+    @user = User.new
   end
 
   def create
+    cookies.delete :auth_token
     @user = User.new(params[:user])
     @user.save!
     self.current_user = @user
     redirect_back_or_default('/')
     flash[:notice] = "Thanks for signing up! You're logged in now. To log in again you'll need to click the link that was sent to you by email. Check your spam folder, our activations have been known to end up in there."
   rescue ActiveRecord::RecordInvalid
+    flash[:error] = "There was a problem creating your account."
     render :action => 'new'
   end
   

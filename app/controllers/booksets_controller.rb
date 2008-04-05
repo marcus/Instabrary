@@ -35,6 +35,7 @@ class BooksetsController < ApplicationController
     respond_to do |format|
       format.html # show.html.erb
       format.xml  { render :xml => @bookset }
+      format.json { render :json => @bookset.to_json(:include => :books)}
     end
   end
 
