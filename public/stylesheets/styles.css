@@ -1,12 +1,6 @@
 /* @override 
-	http://localhost:3000/stylesheets/scaffold.css?1191683663
-	http://localhost:3000/stylesheets/styles.css?1192246144
-	http://localhost:3000/stylesheets/styles.css?1192450158
-	http://localhost:3000/stylesheets/styles.css?1192542256
-	http://localhost:3000/stylesheets/styles.css?1192631569
-	http://localhost:3000/stylesheets/styles.css?1192736409
-	http://localhost:3000/stylesheets/styles.css?1192853296
-	http://localhost:3000/stylesheets/styles.css?1192886740
+	http://localhost:3000/stylesheets/scaffold.css?1204006999
+	http://localhost:3000/stylesheets/styles.css?1204006999
 */
 
 body {
@@ -99,12 +93,19 @@ h1 {
 	font-size: 14px;
 	font-weight: normal;
 	font-style: normal;
+	color: #000;
 }
 
 h2 {
 	font-size: 13px;
 	font-weight: normal;
 	font-style: normal;
+	color: #000;
+}
+h3 {
+	font-style: italic;
+	font-weight: normal;
+	font-size: 12px;
 }
 
 /* @group Set Display */
@@ -263,6 +264,16 @@ h2 {
 .book_property {
 	color: #393939;
 	font-size: 13px;
+}
+
+/* @end */
+
+/* @group Profile */
+
+.help {
+	font-size: 10px;
+	color: #a0a0a0;
+	margin-left: 3px;
 }
 
 /* @end */

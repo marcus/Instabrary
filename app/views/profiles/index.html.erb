@@ -1,0 +1,22 @@
+<h1>The profile of the illustrious <%= @user.login %></h1>
+
+<h2>By whom several book sets were created:</h2>
+<% if @booksets.blank? %>
+	<ul><li>Wait. <%= @user.login %> has not created any book sets. <%= link_to 'What were we thinking?', :controller => 'booksets', :action => 'new' %></li></ul>
+<% else %>
+	<ul>
+	<% for set in @booksets %>
+		<li><%= link_to set.title, set %><br /></li>
+	<% end %>
+	</ul>
+<% end %>
+
+<h2>Certain information that <%= @user.login %> has supplied:</h2>
+<p class="help">If nothing is here, don't panic, it just means this user hasn't said anything about any books.</p>
+
+<%= render :partial => 'supplied_information', :locals => {:heading => "Wants to own", :list => @wants }%>
+<%= render :partial => 'supplied_information', :locals => {:heading => "Is currently reading", :list => @reading }%>
+<%= render :partial => 'supplied_information', :locals => {:heading => "Has read", :list => @read }%>
+<%= render :partial => 'supplied_information', :locals => {:heading => "Has read at least part of", :list => @part }%>
+<%= render :partial => 'supplied_information', :locals => {:heading => "Plans on reading", :list => @toread }%>
+<%= render :partial => 'supplied_information', :locals => {:heading => "Owns", :list => @own }%>

@@ -24,6 +24,7 @@
 					  <%= link_to "Show all sets", :controller => "booksets" %> 
 					  <% if session[:user]%>
 							 | <%= link_to "Show my sets", :controller => "booksets", :user => session[:user] %>
+							 | <%= link_to "My profile", :controller => "profiles", :user => session[:user] %>
 					  <% else %>
 							 | <%= link_to "Sign up!", :controller => "users", :action => "new"%>
 					  <% end %>
@@ -37,7 +38,7 @@
 		<%= yield  %>
 	</div>
 
-	<div id="footer">Copyright 2007 - Instabrary</div>
+	<div id="footer">Copyright 2008 - Instabrary</div>
 </div><!--end page div-->
 <script src="http://www.google-analytics.com/urchin.js" type="text/javascript">
 </script>

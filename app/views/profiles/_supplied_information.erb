@@ -1,0 +1,8 @@
+<% if !list.blank? %>
+	<h3><%= heading %></h3>
+	<ul>
+  <% for book in list %>
+    <li><%= link_to book.title, book %><br /></li>
+  <% end %>
+	</ul>
+<% end %>
