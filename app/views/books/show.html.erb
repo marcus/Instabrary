@@ -33,8 +33,9 @@
 </div>
 
 <div class="book_pair">
-	<span class="book_attribute">Publication Date and ISBN:</span>
-	<div class="book_property"><%=h @book.publication_date.to_s(:long) %> | <%=h @book.isbn %></div>
+	<span class="book_attribute"><% if @book.publication_date %>Publication Date and <% end %>ISBN:</span>
+	<div class="book_property"><% if @book.publication_date %><%=h @book.publication_date.to_s(:long) %> | <% end %>
+	<%=h @book.isbn %></div>
 </div>
 
 <div class="book_pair">
