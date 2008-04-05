@@ -6,9 +6,10 @@ class BooksetsController < ApplicationController
   
   def index
     if !params[:user]
-      @booksets = Bookset.find(:all)
+      @booksets = Bookset.find(:all, :order => "created_at DESC")
     else
-      @booksets = Bookset.find(:all, :order => "created_at DESC", :conditions => {:user_id => params[:user]})
+      @user = User.find(params[:user])
+      @booksets = Bookset.find_all_by_user_id(params[:user], :order => "created_at DESC")
     end
 
     respond_to do |format|

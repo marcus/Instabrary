@@ -2,9 +2,12 @@ class BooksController < ApplicationController
   # GET /books
   # GET /books.xml
   def index
-    @books = Book.find(:all)
-    @books = Book.paginate :page => params[:page]
-    #@posts = Post.paginate :page => params[:page]
+    if(params[:bookset_id])
+      @bookset = Bookset.find(params[:bookset_id])
+      @books = @bookset.books.paginate :page => params[:page]
+    else
+      @books = Book.find(:all).paginate :page => params[:page]
+    end
     
     respond_to do |format|
       format.html # index.html.erb

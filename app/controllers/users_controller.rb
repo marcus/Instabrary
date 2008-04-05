@@ -40,7 +40,7 @@ class UsersController < ApplicationController
 
     respond_to do |format|
       if @user.update_attributes(params[:user])
-        flash[:notice] = 'Your profile was successfully updated.'
+        flash[:notice] = 'Your account was successfully updated.'
         format.html { redirect_to(@user) }
         format.xml  { head :ok }
       else

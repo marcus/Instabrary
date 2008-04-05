@@ -16,7 +16,6 @@ class BookStatusesController < ApplicationController
         format.js {
           render :update do |page|
             page.replace_html("statuses", :partial => 'books/statuses', :locals => { :book_statuses => @book_statuses })
-            page.visual_effect :highlight, 'statuses'
           end 
         }
       end

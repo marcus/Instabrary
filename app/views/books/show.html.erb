@@ -33,8 +33,8 @@
 </div>
 
 <div class="book_pair">
-	<span class="book_attribute">Publication Date:</span>
-	<div class="book_property"><%=h @book.publication_date %></div>
+	<span class="book_attribute">Publication Date and ISBN:</span>
+	<div class="book_property"><%=h @book.publication_date.to_s(:long) %> | <%=h @book.isbn %></div>
 </div>
 
 <div class="book_pair">
@@ -42,7 +42,7 @@
 	<div class="book_property"><%=h @book.pages %><% if @book.book_binding %>, (<%=h @book.book_binding %>)<% end%></div>
 </div>
 
-<div class="book_pair">
+<!--<div class="book_pair">
 	<span class="book_attribute">Publisher:</span>
 	<div class="book_property"><%=h @book.publisher %><% if @book.label %>, (<%=h @book.label %>)<% end%></div>
 </div>
@@ -50,7 +50,7 @@
 <div class="book_pair">
 		<span class="book_attribute">ISBN:</span>
 		<div class="book_property"><%=h @book.isbn %><% if @book.edition %>, Edition <%=h @book.edition %><% end %></div>
-</div>
+</div>-->
 
 
 <% if @book.editorial_review %>

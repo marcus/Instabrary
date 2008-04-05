@@ -11,7 +11,7 @@
 <body>
 	<div id="user_actions">
 	<% if session[:user] %>
-		<%= link_to "My Profile", "/profile"%> | <%= link_to "Log Out", "/logout"%>
+		<%= link_to "My Account", "/account"%> | <%= link_to "Log Out", "/logout"%>
 	<% else %>
 		<%= link_to "Log in", "/login" %> | <%= link_to "Sign up!", "/signup" %>
 	<% end %>

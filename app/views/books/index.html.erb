@@ -1,4 +1,8 @@
-<h1>All the books on Instabrary</h1>
+<% if @bookset.blank? %>
+	<h1>All the books on Instabrary</h1>
+<% else %>
+	<h1>A concise list of the books in "<%= link_to @bookset.title, :controller => 'booksets', :id => @bookset %>"</h1>
+<% end %>
 
 <table>
   <tr>

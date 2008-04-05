@@ -11,10 +11,13 @@
 </span>
 </p>
 
+<p>
 <% if session[:user] == @bookset.user.id %>
-<p><%= link_to "Edit this set", edit_bookset_path(@bookset) %> | <%=link_to "Add a book to this set", "#add"%></p>
+<%= link_to "Edit this set", edit_bookset_path(@bookset) %> | <%=link_to "Add a book to this set", "#add"%> | 
 <% end %>
+<%= link_to "A concise view of this set", "./#{@bookset.id}/books" %>
 
+</p>
 <div id="book_set_details">
 	<h2>Book Set Statistics</h2>
 	<div id="book_set_details_content">
