@@ -1,6 +1,6 @@
 <h1>The profile of the illustrious <%= @user.login %></h1>
 
-<h2>By whom <%= "bookset".en.quantify(@booksets.length) %> were created:</h2>
+<h2>By whom <%= "bookset".en.quantify(@booksets.length) %> <% if @booksets.length != 1 %>were<% else %>was<% end %> created:</h2>
 <% if @booksets.blank? %>
 	<ul><li>Wait. <%= @user.login %> has not created any booksets. <%= link_to 'What were we thinking?', :controller => 'booksets', :action => 'new' %></li></ul>
 <% else %>
