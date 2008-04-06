@@ -1,3 +1,7 @@
+require 'rubygems'
+require 'Linguistics'
+Linguistics::use( :en )
+
 class ProfilesController < ApplicationController
   
   def show
@@ -7,7 +11,7 @@ class ProfilesController < ApplicationController
     @statuses = BookStatus.find_all_by_user_id(@user)
     
     @own, @wants, @reading, @read, @toread, @part = [],[],[],[],[],[]
-    
+        
     @statuses.each { |s|
       if(s.active == true)
         case s.status.name
