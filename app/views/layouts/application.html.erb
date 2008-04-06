@@ -23,8 +23,8 @@
 <div id="navbar"><%= link_to "Add a set", :controller => "booksets", :action => :new %> | 
 					  <%= link_to "Show all sets", :controller => "booksets" %> 
 					  <% if session[:user]%>
-							 | <%= link_to "Show my sets", :controller => "booksets", :user => session[:user] %>
-							 | <%= link_to "My profile", :controller => "profiles", :user => session[:user] %>
+							 | <%= link_to "Show my sets", "/users/#{session[:user]}/booksets" %>
+							 | <%= link_to "My profile", :controller => "profiles", :action => "show", :id => session[:user] %>
 					  <% else %>
 							 | <%= link_to "Sign up!", :controller => "users", :action => "new"%>
 					  <% end %>

@@ -1,7 +1,7 @@
 class ProfilesController < ApplicationController
   
-  def index
-    @user = User.find(session[:user])
+  def show
+    @user = User.find(params[:id])
     @booksets = Bookset.find_all_by_user_id(@user)
     
     @statuses = BookStatus.find_all_by_user_id(@user)

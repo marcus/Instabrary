@@ -2,7 +2,8 @@
 <h1><%= @bookset.title %></h1>
 </p>
 <p><%= @bookset.description %><br />
-<span class="set_by">by <%= link_to @set_creator.login, :action => "index", :user => @set_creator.id %><% if @bookset.author != "" %>. Originally by <%= @bookset.author %><% end %>
+<span class="set_by">by <%= link_to @bookset.user.login, @bookset.user %><% if @bookset.author != "" %>.
+	Originally by <%= @bookset.author %><% end %>
 <% if @bookset.source_uri %>
 	<%= link_to @bookset.source_name, @bookset.source_uri %>
 <% else %>

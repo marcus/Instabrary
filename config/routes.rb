@@ -3,6 +3,7 @@ ActionController::Routing::Routes.draw do |map|
 
   map.resources :books, :booksearches, :users, :sessions, :listings, :statuses, :profiles #, :book_statuses
   map.resources :booksets, :has_many => [ :books ], :has_one => :user
+  map.resources :users, :has_many => [:booksets]
   #easier routes for restful_authentication
   map.signup '/signup', :controller => 'users', :action => 'new'
   map.login '/login', :controller => 'sessions', :action => 'new'
@@ -11,6 +12,7 @@ ActionController::Routing::Routes.draw do |map|
   map.forgot_password '/forgot_password', :controller => 'users', :action => 'forgot_password'
   map.reset_password '/reset_password', :controller => 'users', :action => 'reset_password'
   map.account '/account', :controller => 'users', :action => 'show'
+  map.connect 'users/:id', :controller => 'profiles', :action => 'show'
   
   # The priority is based upon order of creation: first created -> highest priority.
 

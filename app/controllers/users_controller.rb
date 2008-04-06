@@ -19,12 +19,15 @@ class UsersController < ApplicationController
   # GET /users/1
   # GET /users/1.xml
   def show
-    #@user = User.find(params[:id])
-    @user = User.find(session[:user])
+    if params[:id] && params[:id] != session[:user]
+      redirect_to :controller => 'profiles', :action => 'show', :id => params[:id]
+    else
+      @user = User.find(session[:user])
 
-    respond_to do |format|
-      format.html # show.html.erb
-      format.xml  { render :xml => @user }
+      respond_to do |format|
+        format.html # show.html.erb
+        format.xml  { render :xml => @user }
+      end
     end
   end
   
@@ -41,7 +44,7 @@ class UsersController < ApplicationController
     respond_to do |format|
       if @user.update_attributes(params[:user])
         flash[:notice] = 'Your account was successfully updated.'
-        format.html { redirect_to(@user) }
+        format.html { redirect_to('/account') }
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }
