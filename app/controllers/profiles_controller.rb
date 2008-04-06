@@ -1,5 +1,5 @@
 require 'rubygems'
-require 'Linguistics'
+require 'linguistics'
 Linguistics::use( :en )
 
 class ProfilesController < ApplicationController
