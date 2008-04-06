@@ -3,13 +3,15 @@
 	<div id="book_details_content">		
 			<% if @book.medium_image %>
 				<%= link_to (image_tag @book.medium_image, :height => @book.medium_image_height, :width => @book.medium_image_width, :class => "book_detail_image", :border => 0), @book.link %>
+				<br />
+				<%= link_to "View on Amazon", @book.link %>
 			<% end %>
 			<% if @book.booksets.length != 0 %>
 				<p class="book_details_stat">
-					This book belongs to the following book set(s):
+					This book belongs to the following bookset(s):
 					<ul>
 					<% @book.booksets.each do |set| %>
-						<li><%= link_to set.title, :controller=>"booksets", :action => :show, :id => set %></li>
+						<li><%= link_to set.title, :controller=>"booksets", :action => :show, :id => set %> by <%= link_to set.user.login, set.user %></li>
 					<% end %>
 					</ul>
 				</p>

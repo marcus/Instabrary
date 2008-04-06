@@ -20,12 +20,12 @@
 
 </p>
 <div id="book_set_details">
-	<h2>Book Set Statistics</h2>
+	<h2>Bookset Statistics</h2>
 	<div id="book_set_details_content">
 		<p class="book_set_details_stat"><%= @total_books %> Books</p>
 		<p class="book_set_details_stat"><%= @total_pages%> Total Pages</p>
 		<p class="book_set_details_stat">About <%= @total_pages * 250 %> Words</p>
-		<p class="book_set_details_stat">About <%= (@total_pages * 250)/275/60 %> Hours to Read the Entire Book Set</p>
+		<p class="book_set_details_stat">About <%= (@total_pages * 250)/275/60 %> Hours to Read the Entire Bookset</p>
 		<p class="book_set_details_stat">That's around <%= sprintf "%.1f", (@total_pages * 250)/275/60/7.0 %> week(s) if you read an hour a day.</p>
 		<p>We're assuming you read 275 words a minute and that there are about 250 words per page.</p>
 	</div>

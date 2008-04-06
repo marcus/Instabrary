@@ -20,10 +20,10 @@
 
 <%= link_to (image_tag "logo.gif", :border => 0, :id => 'logo', :alt => "Instabrary"), :controller => "home" %>
 
-<div id="navbar"><%= link_to "Add a set", :controller => "booksets", :action => :new %> | 
-					  <%= link_to "Show all sets", :controller => "booksets" %> 
+<div id="navbar"><%= link_to "Create a bookset", :controller => "booksets", :action => :new %> | 
+					  <%= link_to "All booksets", :controller => "booksets" %> 
 					  <% if session[:user]%>
-							 | <%= link_to "Show my sets", "/users/#{session[:user]}/booksets" %>
+							 | <%= link_to "My Booksets", "/users/#{session[:user]}/booksets" %>
 							 | <%= link_to "My profile", :controller => "profiles", :action => "show", :id => session[:user] %>
 					  <% else %>
 							 | <%= link_to "Sign up!", :controller => "users", :action => "new"%>

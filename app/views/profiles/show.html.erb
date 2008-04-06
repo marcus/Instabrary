@@ -1,8 +1,8 @@
 <h1>The profile of the illustrious <%= @user.login %></h1>
 
-<h2>By whom several book sets were created:</h2>
+<h2>By whom the following booksets were created:</h2>
 <% if @booksets.blank? %>
-	<ul><li>Wait. <%= @user.login %> has not created any book sets. <%= link_to 'What were we thinking?', :controller => 'booksets', :action => 'new' %></li></ul>
+	<ul><li>Wait. <%= @user.login %> has not created any booksets. <%= link_to 'What were we thinking?', :controller => 'booksets', :action => 'new' %></li></ul>
 <% else %>
 	<ul>
 	<% for set in @booksets %>
