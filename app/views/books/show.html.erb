@@ -1,11 +1,13 @@
 <div id="book_details">
 	<h2>This book on Instabrary</h2>
 	<div id="book_details_content">		
+			
 			<% if @book.medium_image %>
 				<%= link_to (image_tag @book.medium_image, :height => @book.medium_image_height, :width => @book.medium_image_width, :class => "book_detail_image", :border => 0), @book.link %>
 				<br />
 				<%= link_to "View on Amazon", @book.link %>
 			<% end %>
+			
 			<% if @book.booksets.length != 0 %>
 				<p class="book_details_stat">
 					This book belongs to the following bookset(s):
@@ -16,11 +18,13 @@
 					</ul>
 				</p>
 			<% end %>
+			
 			<div id="statuses">
 			<% if session[:user ]%>
 					<%= render :partial => "statuses", :locals => { :book_statuses => @book_statuses }%>
 			<% end %>
 			</div>
+			
 	</div>
 </div>
 
@@ -44,17 +48,6 @@
 	<span class="book_attribute">Pages:</span>
 	<div class="book_property"><%=h @book.pages %><% if @book.book_binding %>, (<%=h @book.book_binding %>)<% end%></div>
 </div>
-
-<!--<div class="book_pair">
-	<span class="book_attribute">Publisher:</span>
-	<div class="book_property"><%=h @book.publisher %><% if @book.label %>, (<%=h @book.label %>)<% end%></div>
-</div>
-
-<div class="book_pair">
-		<span class="book_attribute">ISBN:</span>
-		<div class="book_property"><%=h @book.isbn %><% if @book.edition %>, Edition <%=h @book.edition %><% end %></div>
-</div>-->
-
 
 <% if @book.editorial_review %>
 	<div class="book_pair">

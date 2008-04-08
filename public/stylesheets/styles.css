@@ -1,6 +1,7 @@
 /* @override 
 	http://localhost:3000/stylesheets/scaffold.css?1204006999
 	http://localhost:3000/stylesheets/styles.css?1204006999
+	http://localhost:3000/stylesheets/styles.css?1207453709
 */
 
 body {
@@ -129,6 +130,17 @@ h3 {
 	font: 16px "Helvetica Neue", Arial, Helvetica, Geneva, sans-serif;
 	color: #007e7f;
 }
+.book-count {
+	color: #7ffff3;
+	font-weight: bold;
+	font-size: 30px;
+	position: relative;
+	right: 49px;
+	bottom: 10px;
+	background-color: rgba(53,53,53,0.57);
+	display: inline;
+	text-align: right;
+}
 .set_list {
 	list-style-type: none;
 	margin-bottom: 5px;
@@ -180,7 +192,7 @@ h3 {
 .home_set_list {
 	width: 170px;
 	height: 200px;
-	xborder: 1px solid #828282;
+	Xborder: 1px solid #828282;
 	position: relative;
 	float: left;
 	text-align: center;
