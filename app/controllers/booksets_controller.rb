@@ -10,7 +10,7 @@ class BooksetsController < ApplicationController
       
     else
       @user = User.find(params[:user_id])
-      @booksets = Bookset.find_all_by_user_id(params[:user_id], :order => "created_at DESC")
+      @booksets = Bookset.paginate_all_by_user_id(params[:user_id], :page => params[:page], :order => "created_at DESC")
     end
 
     respond_to do |format|
