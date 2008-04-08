@@ -6,7 +6,8 @@ class BooksetsController < ApplicationController
   
   def index
     if !params[:user_id]
-      @booksets = Bookset.find(:all, :order => "created_at DESC")
+      @booksets = Bookset.paginate(:page => params[:page], :order => "created_at DESC")
+      
     else
       @user = User.find(params[:user_id])
       @booksets = Bookset.find_all_by_user_id(params[:user_id], :order => "created_at DESC")

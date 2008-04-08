@@ -156,6 +156,9 @@ h3 {
 	width: 650px;
 }
 
+#set_pagination {
+	clear: both;
+}
 .set_thumbnail_cell {
 	width: 100px;
 	text-align: center;

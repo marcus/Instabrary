@@ -3,5 +3,8 @@ class Bookset < ActiveRecord::Base
   has_many :listings, :dependent => :destroy
   has_many :books, :through => :listings
   
-  validates_presence_of     :title, :description
+  validates_presence_of :title, :description
+  
+  cattr_reader :per_page
+  @@per_page = 20
 end
