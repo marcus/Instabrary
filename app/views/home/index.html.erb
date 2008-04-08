@@ -2,13 +2,4 @@
 <p>Instabrary lets you create playlists of books--we call them "booksets." Use it to make reading recommendations to friends, post on your blog, save for later or just for fun.</p>
 <h2>Recently Created Booksets</h2>
 
-<% @booksets.each do |bookset| %>
-	<% if bookset.books[0] %>
-		<% if bookset.books[0].medium_image %>
-			<div class="home_set_list">
-				<%= link_to image_tag(bookset.books[0].medium_image, :height => bookset.books[0].medium_image_height, :width => bookset.books[0].medium_image_width, :alt => bookset.title), :controller => "booksets", :action => "show", :id => bookset %>
-				<br /><%= bookset.title %> <br /> <%= bookset.books.length %> books
-			</div>
-		<% end %>
-	<% end %>
-<% end %>
+<%= render :partial => '/shared/bookset_list' %>

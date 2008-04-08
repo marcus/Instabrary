@@ -1,17 +1,6 @@
 <h1>Booksets<% if !@user.blank? %> by <%= @user.login %><% end %></h1>
 
-<% @booksets.each do |bookset| %>
-	<div class="home_set_list">
-		<% if !bookset.books.empty? %>
-			<% if bookset.books[0].medium_image %>
-					<%= link_to image_tag(bookset.books[0].medium_image, :height => bookset.books[0].medium_image_height, :width => bookset.books[0].medium_image_width), :controller => "booksets", :action => "show", :id => bookset %>
-					<div class="book-count"><%= bookset.books.length %></div>
-			<% end %>
-		<% end %>
-		<br /><%= link_to bookset.title, :controller => "booksets", :action => :show, :id => bookset %> <br />
-		by <%= link_to bookset.user.login, bookset.user %>
-		</div>
-	<% end %>
+<%= render :partial => '/shared/bookset_list' %>
 
 <br />
 

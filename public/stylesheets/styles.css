@@ -2,6 +2,7 @@
 	http://localhost:3000/stylesheets/scaffold.css?1204006999
 	http://localhost:3000/stylesheets/styles.css?1204006999
 	http://localhost:3000/stylesheets/styles.css?1207453709
+	http://localhost:3000/stylesheets/styles.css?1207504353
 */
 
 body {
@@ -130,16 +131,20 @@ h3 {
 	font: 16px "Helvetica Neue", Arial, Helvetica, Geneva, sans-serif;
 	color: #007e7f;
 }
+.book-image {
+	xwidth: 110px;
+}
 .book-count {
 	color: #7ffff3;
 	font-weight: bold;
 	font-size: 30px;
-	position: relative;
-	right: 49px;
-	bottom: 10px;
 	background-color: rgba(53,53,53,0.57);
-	display: inline;
 	text-align: right;
+	position: absolute;
+	margin-left: 15px;
+	margin-top: 2px;
+	top: 100px;
+	left: 29px;
 }
 .set_list {
 	list-style-type: none;

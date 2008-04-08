@@ -53,4 +53,5 @@ Rails::Initializer.run do |config|
   # Application configuration should go into files in config/initializers
   # -- all .rb files in that directory is automatically loaded
   config.active_record.observers = :user_observer
+  
 end
