@@ -1,4 +1,4 @@
-<h1>Booksets<% if !@user.blank? %> by <%= @user.login %><% end %></h1>
+<h1>Booksets<% if !@user.blank? %> by <%= @user.login %><% else %> - A list of all of them.<% end %></h1>
 
 <%= render :partial => '/shared/bookset_list' %>
 
