@@ -61,8 +61,15 @@ class BooksearchesController < ApplicationController
   # POST /booksearches
   # POST /booksearches.xml
   def create
-    @booksearch = Booksearch.new(params[:booksearch])
-    @booksearch.user_id = session[:user].id
+    if params[:booksearch]
+      @booksearch = Booksearch.new(params[:booksearch])
+    else
+      @booksearch = Booksearch.new
+      @booksearch.keyword = params[:keyword]
+    end
+    if session[:user]
+      @booksearch.user_id = session[:user].id
+    end
     
     respond_to do |format|
       if @booksearch.save

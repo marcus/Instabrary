@@ -28,6 +28,13 @@
 					  <% else %>
 							 | <%= link_to "Sign up!", :controller => "users", :action => "new"%>
 					  <% end %>
+					
+					| <%= form_tag( {:controller => 'booksearches', :action => 'create'}, :style => 'display: inline-block;') %>
+							<%= text_field_tag :keyword %>
+							<%= submit_tag "Search" %>
+					</form>
+					
+					
 					  </div>
 <div id="page">
 	<div id="page-top"></div>
