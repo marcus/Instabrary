@@ -4,7 +4,7 @@
 			<% if bookset.books[0].medium_image %>
 					<div class="book-image">
 						<div class="book-count"><%= bookset.books.length %></div>
-						<%= link_to image_tag(bookset.books[0].medium_image, :height => bookset.books[0].medium_image_height, :width => bookset.books[0].medium_image_width), :controller => "booksets", :action => "show", :id => bookset %>
+						<%= link_to image_tag(bookset.books[0].medium_image, :height => bookset.books[0].medium_image_height, :width => bookset.books[0].medium_image_width, :border => 0), :controller => "booksets", :action => "show", :id => bookset %>
 					</div>
 			<% end %>
 		<% end %>
