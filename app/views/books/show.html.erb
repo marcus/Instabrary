@@ -22,16 +22,17 @@
 				</p>
 			<% end %>
 			
-			<div id="statuses">
-				<% if session[:user ]%>
-					<h3>This book and me:</h3>
-					<h4>My rating</h4>
-					<%= render :partial => 'stars', :locals => {:user => @user, :book => @book} %>
+			<% if session[:user ]%>
+				<h3>This book and me:</h3>
+				<h4>My rating</h4>
+				<%= render :partial => 'stars', :locals => {:user => @user, :book => @book} %>
+				<div id="statuses">
 					<%= render :partial => 'statuses', :locals => { :book_statuses => @book_statuses }%>
-				<% else %>
+				</div>
+			<% else %>
 					If you were <%= link_to "logged in", '/login' %>, you could click lots of little buttons here!
-				<% end %>
-			</div>
+			<% end %>
+			
 			
 	</div>
 </div>
