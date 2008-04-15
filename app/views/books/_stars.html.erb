@@ -1,0 +1,2 @@
+<div id="stars"><%= ajaxful_rating_for @book, rate_book_path(@book),
+ :enable_rate => (!@book.rated_by?(@user)), :method => :post %></div>

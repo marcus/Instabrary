@@ -1,6 +1,7 @@
 class BooksController < ApplicationController
   # GET /books
   # GET /books.xml
+  
   def index
     if(params[:bookset_id])
       @bookset = Bookset.find(params[:bookset_id])
@@ -18,6 +19,10 @@ class BooksController < ApplicationController
   # GET /books/1
   # GET /books/1.xml
   def show
+    # DRY finding user (before_filter or something similar)
+    if(session[:user])
+      @user = User.find(session[:user])
+    end
     @book = Book.find(params[:id])
     @page_title = "#{@book.title} on Instabrary"
 
@@ -63,32 +68,21 @@ class BooksController < ApplicationController
     end
   end
 
-  # PUT /books/1
-  # PUT /books/1.xml
-  #def update
-  #  @book = Book.find(params[:id])
-  #
-  #  respond_to do |format|
-  #    if @book.update_attributes(params[:book])
-  #      flash[:notice] = 'Book was successfully updated.'
-  #      format.html { redirect_to(@book) }
-  #      format.xml  { head :ok }
-  #    else
-  #      format.html { render :action => "edit" }
-  #      format.xml  { render :xml => @book.errors, :status => :unprocessable_entity }
-  #    end
-  #  end
-  #end
 
-  # DELETE /books/1
-  # DELETE /books/1.xml
-  #def destroy
-  #  @book = Book.find(params[:id])
-  #  @book.destroy
-  #
-  #  respond_to do |format|
-  #    format.html { redirect_to(books_url) }
-  #    format.xml  { head :ok }
-  #  end
-  #end
+  def rate
+    if(session[:user])
+      @user = User.find(session[:user])
+    end
+    @book = Book.find(params[:id])
+    @book.rate(params[:stars], @user)
+    
+    respond_to do |format|
+      format.js {
+        render :update do |page|
+          page.replace 'stars', :partial => 'stars', :locals => {:user => @user, :book => @book}
+        end 
+      }
+    end
+  end
+  
 end

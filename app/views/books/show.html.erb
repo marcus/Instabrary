@@ -1,3 +1,6 @@
+<%= stylesheet_link_tag 'ajaxful_rating' %>
+<%= javascript_include_tag :defaults %>
+
 <div id="book_details">
 	<h2>This book on Instabrary</h2>
 	<div id="book_details_content">		
@@ -20,11 +23,11 @@
 			<% end %>
 			
 			<div id="statuses">
-			<% if session[:user ]%>
-					<%= render :partial => "statuses", :locals => { :book_statuses => @book_statuses }%>
-			<% else %>
-				If you were <%= link_to "logged in", '/login' %>, you could click lots of little buttons here!
-			<% end %>
+				<% if session[:user ]%>
+					<%= render :partial => 'statuses', :locals => { :book_statuses => @book_statuses }%>
+				<% else %>
+					If you were <%= link_to "logged in", '/login' %>, you could click lots of little buttons here!
+				<% end %>
 			</div>
 			
 	</div>

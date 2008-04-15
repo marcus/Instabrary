@@ -4,6 +4,7 @@ class Book < ActiveRecord::Base
   has_many :statuses, :through => :book_statuses
   cattr_reader :per_page
   @@per_page = 20
+  has_ajaxful_rates
   
   def link
     the_link = "#{affiliate_link}besttoolforth-20"

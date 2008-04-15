@@ -1,5 +1,9 @@
 <h3>This book and me:</h3>
-<p>Click an option to change it</p>
+
+<h4>My rating</h4>
+<%= render :partial => 'stars', :locals => {:user => @user, :book => @book} %>
+
+<h4>Click an option to change it</h4>
 <% for book_status in book_statuses %>
 
 	<% if book_status.active %>

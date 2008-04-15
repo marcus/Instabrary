@@ -2,6 +2,7 @@ require 'digest/sha1'
 class User < ActiveRecord::Base
   has_many :booksets
   has_many :booksearches
+  is_ajaxful_rater
   
   # Virtual attribute for the unencrypted password
   attr_accessor :password

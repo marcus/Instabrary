@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 3) do
+ActiveRecord::Schema.define(:version => 4) do
 
   create_table "book_statuses", :force => true do |t|
     t.integer  "user_id"
@@ -46,6 +46,7 @@ ActiveRecord::Schema.define(:version => 3) do
     t.integer  "medium_image_width",      :limit => 3
     t.integer  "large_image_height",      :limit => 3
     t.integer  "large_image_width",       :limit => 3
+    t.decimal  "rating_average",                        :precision => 3, :scale => 1
   end
 
   create_table "booksearches", :force => true do |t|
@@ -75,6 +76,18 @@ ActiveRecord::Schema.define(:version => 3) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "rates", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "rateable_id"
+    t.string   "rateable_type", :limit => 30
+    t.integer  "rate"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "rates", ["user_id"], :name => "index_rates_on_user_id"
+  add_index "rates", ["rateable_id"], :name => "index_rates_on_rateable_id"
 
   create_table "statuses", :force => true do |t|
     t.string   "name"
