@@ -1,0 +1,65 @@
+= stylesheet_link_tag 'ajaxful_rating'
+= javascript_include_tag :defaults
+
+#book_details
+  %h2 This book on Instabrary
+  #book_details_content
+
+    - if @book.medium_image
+      = link_to((image_tag @book.medium_image, :height => @book.medium_image_height, :width => @book.medium_image_width, :class => "book_detail_image", :border => 0), @book.link)
+      %br
+      = link_to "View on Amazon", @book.link
+
+    - if @book.booksets.length != 0
+      %p.book_details_stat
+      This book belongs to the following bookset(s):
+      %ul
+        -@book.booksets.each do |set|
+          %li
+            = link_to set.title, :controller=>"booksets", :action => :show, :id => set
+            by
+            = link_to set.user.login, set.user
+            
+    - if session[:user ]
+      %h3 This book and me:
+      %h4 My rating
+      = render :partial => 'stars', :locals => {:user => @user, :book => @book}
+      #statuses
+        = render :partial => 'statuses', :locals => { :book_statuses => @book_statuses }
+    - else
+      If you were
+      = link_to "logged in", '/login'
+      , you could click lots of little buttons here!
+
+.book_pair
+  %span.book_attribute Title:
+  .book_property
+    = h @book.title
+
+.book_pair
+  %span.book_attribute Author:
+  .book_property
+    = h @book.authors
+
+.book_pair
+  %span.book_attribute
+    - if @book.publication_date
+      Publication Date and
+      ISBN:
+    .book_property
+      - if @book.publication_date
+        = h @book.publication_date.to_s(:long)
+        |
+      = h @book.isbn
+
+.book_pair
+  %span.book_attribute Pages:
+  .book_property
+    = h @book.pages
+    - if @book.book_binding
+      ==, (#{h @book.book_binding})
+- if @book.editorial_review
+  .book_pair
+    %span.book_attribute Amazon.com Editorial Review:
+    .book_property
+    = @book.editorial_review
