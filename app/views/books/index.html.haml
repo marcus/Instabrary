@@ -1,0 +1,14 @@
+- if @bookset.blank?
+  %h1 All the books on Instabrary
+- else
+  %h1
+    A concise list of the books in
+    = link_to @bookset.title, :controller => 'booksets', :id => @bookset
+
+%table
+  %tr
+    %th Title
+    %th author
+    %th ISBN
+  =render :partial => 'book', :collection => @books
+= will_paginate
