@@ -5,7 +5,7 @@
 # ENV['RAILS_ENV'] ||= 'production'
 
 # Specifies gem version of Rails to use when vendor/rails is not present
-RAILS_GEM_VERSION = '2.0.2' unless defined? RAILS_GEM_VERSION
+RAILS_GEM_VERSION = '2.3.4' unless defined? RAILS_GEM_VERSION
 
 # Bootstrap the Rails environment, frameworks, and default configuration
 require File.join(File.dirname(__FILE__), 'boot')
@@ -30,7 +30,7 @@ Rails::Initializer.run do |config|
   # If you change this key, all old sessions will become invalid!
   config.action_controller.session = {
     :session_key => '_Instabrary_',
-    :secret      => 'd7a47c48d2fec4a3e3d3cro0forojdlvudfhrk445555r543e'
+    :secret      => 'd7a47c48d2fec4a3e3d3cro0forojdlvudfhrk445555r543edf00daadljadflasKEKGJEkdjakjekjdkjakjdkjekjakjdkj'
   }
 
   # Use the database for sessions instead of the cookie-based default,
