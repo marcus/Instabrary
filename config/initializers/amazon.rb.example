@@ -1,0 +1,2 @@
+require 'amazon/ecs'
+Amazon::Ecs.options = {:aWS_access_key_id => ['your access key'], :aWS_secret_key => [your secret access key]}
