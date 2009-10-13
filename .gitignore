@@ -1,3 +1,4 @@
 log
 config/initializers/amazon.rb
 config/database.yml
+config/deploy.rb
