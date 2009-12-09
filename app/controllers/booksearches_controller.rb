@@ -86,11 +86,11 @@ class BooksearchesController < ApplicationController
   private
   
   def search_amazon(keyword)
-    results = Amazon::Ecs.item_search(keyword, :response_group => 'ListmaniaLists,Medium', :sort => 'relevancerank')
-    if results.has_error?
+    search_results = Amazon::Ecs.item_search(keyword, :response_group => 'ListmaniaLists,Medium', :sort => 'relevancerank')
+    if search_results.has_error?
       return
     end
-    results.items
+    search_results.items
   end
 
 end
