@@ -35,9 +35,17 @@ class Booksearch < ActiveRecord::Base
       book.large_image_width = result.get('largeimage/width')
       book.save
       
+      # Booksearch.send_later(:download_book_cover, book)
       @results.push book
     end
 
     @results
+  end
+
+  def self.download_book_cover(book_id)
+    # Make sure the delayed_job gem is required
+    # Make sure the download dir is present
+    # Download the file
+    # Mark book record as downloaded so it's not searching amazon anymore
   end
 end
