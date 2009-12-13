@@ -17,9 +17,7 @@
 			<table border="0">
 				<tr>
 					<td class="set_medium_thumbnail_cell">
-					<% if book.medium_image %>
-							<%= image_tag book.medium_image, :height => book.medium_image_height, :width =>	book.medium_image_width, :class => 'set_thumbnail' %>
-					<% end %>
+						<%= image_tag book.get_image("medium"), :height => book.medium_image_height, :width =>	book.medium_image_width, :class => 'set_thumbnail' %>
 					</td>
 					<td class="set_details_cell">
 						<div class="set_title">

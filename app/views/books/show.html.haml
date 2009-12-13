@@ -5,31 +5,30 @@
   %h2 This book on Instabrary
   #book_details_content
 
-    - if @book.medium_image
-      = link_to((image_tag @book.medium_image, :height => @book.medium_image_height, :width => @book.medium_image_width, :class => "book_detail_image", :border => 0), @book.link)
-      %br
-      = link_to "View on Amazon", @book.link
+  = link_to((image_tag @book.get_image("medium"), :height => @book.medium_image_height, :width => @book.medium_image_width, :class => "book_detail_image", :border => 0), @book.link)
+  %br
+  = link_to "View on Amazon", @book.link
 
-    - if @book.booksets.length != 0
-      %p.book_details_stat
-      This book belongs to the following bookset(s):
-      %ul
-        -@book.booksets.each do |set|
-          %li
-            = link_to set.title, :controller=>"booksets", :action => :show, :id => set
-            by
-            = link_to set.user.login, set.user
-            
-    - if session[:user ]
-      %h3 This book and me:
-      %h4 My rating
-      = render :partial => 'stars', :locals => {:user => @user, :book => @book}
-      #statuses
-        = render :partial => 'statuses', :locals => { :book_statuses => @book_statuses }
-    - else
-      If you were
-      = link_to "logged in", '/login'
-      , you could click lots of little buttons here!
+  - if @book.booksets.length != 0
+    %p.book_details_stat
+    This book belongs to the following bookset(s):
+    %ul
+      -@book.booksets.each do |set|
+        %li
+          = link_to set.title, :controller=>"booksets", :action => :show, :id => set
+          by
+          = link_to set.user.login, set.user
+          
+  - if session[:user ]
+    %h3 This book and me:
+    %h4 My rating
+    = render :partial => 'stars', :locals => {:user => @user, :book => @book}
+    #statuses
+      = render :partial => 'statuses', :locals => { :book_statuses => @book_statuses }
+  - else
+    If you were
+    = link_to "logged in", '/login'
+    , you could click lots of little buttons here!
 
 .book_pair
   %span.book_attribute Title:

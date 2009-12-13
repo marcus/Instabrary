@@ -1,12 +1,10 @@
 <% @booksets.each do |bookset| %>
 	<div class="home_set_list">
 		<% if !bookset.books.empty? %>
-			<% if bookset.books[0].medium_image %>
-					<div class="book-image">
-						<div class="book-count"><%= bookset.books.length %></div>
-						<%= link_to image_tag(bookset.books[0].medium_image, :height => bookset.books[0].medium_image_height, :width => bookset.books[0].medium_image_width, :border => 0), :controller => "booksets", :action => "show", :id => bookset %>
-					</div>
-			<% end %>
+        <div class="book-image">
+          <div class="book-count"><%= bookset.books.length %></div>
+          <%= link_to image_tag(bookset.books[0].get_image("medium"), :height => bookset.books[0].medium_image_height, :width => bookset.books[0].medium_image_width, :border => 0), :controller => "booksets", :action => "show", :id => bookset %>
+        </div>
 		<% end %>
 		<br /><%= link_to bookset.title, :controller => "booksets", :action => :show, :id => bookset %> <br />
 		by <%= link_to bookset.user.login, bookset.user %>

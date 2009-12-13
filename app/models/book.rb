@@ -17,4 +17,20 @@ class Book < ActiveRecord::Base
     end
     book_statuses
   end
+
+  def get_image(size)
+    logger.info "COVER INFO FOR SIZE #{size} has? #{self.has_cover} and link #{self.medium_cover}"
+    if self.has_cover
+      case size
+      when "small" : return "/covers/small/#{self.small_cover}"
+      when "medium" : return "/covers/medium/#{self.medium_cover}"
+      when "large" : return "/covers/large/#{self.large_cover}"
+      end
+    elsif self["#{size}_image"] 
+      return  self["#{size}_image"]
+    else
+      # TODO Generate an awesome image.
+      return "/images/default_covers/#{size}.png" 
+    end
+  end
 end

@@ -1,5 +1,5 @@
 # This file is auto-generated from the current state of the database. Instead of editing this file, 
-# please use the migrations feature of ActiveRecord to incrementally modify your database, and
+# please use the migrations feature of Active Record to incrementally modify your database, and
 # then regenerate this schema definition.
 #
 # Note that this schema.rb definition is the authoritative source for your database schema. If you need
@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 4) do
+ActiveRecord::Schema.define(:version => 20091212185457) do
 
   create_table "book_statuses", :force => true do |t|
     t.integer  "user_id"
@@ -38,15 +38,19 @@ ActiveRecord::Schema.define(:version => 4) do
     t.string   "edition",                 :limit => 50
     t.string   "publisher"
     t.date     "publication_date"
-    t.integer  "list_price",              :limit => 10
-    t.integer  "lowest_new_price",        :limit => 10
-    t.integer  "small_image_height",      :limit => 3
-    t.integer  "small_image_width",       :limit => 3
-    t.integer  "medium_image_height",     :limit => 3
-    t.integer  "medium_image_width",      :limit => 3
-    t.integer  "large_image_height",      :limit => 3
-    t.integer  "large_image_width",       :limit => 3
+    t.integer  "list_price"
+    t.integer  "lowest_new_price"
+    t.integer  "small_image_height"
+    t.integer  "small_image_width"
+    t.integer  "medium_image_height"
+    t.integer  "medium_image_width"
+    t.integer  "large_image_height"
+    t.integer  "large_image_width"
     t.decimal  "rating_average",                        :precision => 3, :scale => 1
+    t.boolean  "has_cover",                                                           :default => false
+    t.string   "small_cover"
+    t.string   "medium_cover"
+    t.string   "large_cover"
   end
 
   create_table "booksearches", :force => true do |t|
@@ -70,6 +74,19 @@ ActiveRecord::Schema.define(:version => 4) do
     t.string   "qualifications"
   end
 
+  create_table "delayed_jobs", :force => true do |t|
+    t.integer  "priority",   :default => 0
+    t.integer  "attempts",   :default => 0
+    t.text     "handler"
+    t.string   "last_error"
+    t.datetime "run_at"
+    t.datetime "locked_at"
+    t.datetime "failed_at"
+    t.string   "locked_by"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "listings", :force => true do |t|
     t.integer  "book_id"
     t.integer  "bookset_id"
@@ -86,8 +103,8 @@ ActiveRecord::Schema.define(:version => 4) do
     t.datetime "updated_at"
   end
 
-  add_index "rates", ["user_id"], :name => "index_rates_on_user_id"
   add_index "rates", ["rateable_id"], :name => "index_rates_on_rateable_id"
+  add_index "rates", ["user_id"], :name => "index_rates_on_user_id"
 
   create_table "statuses", :force => true do |t|
     t.string   "name"

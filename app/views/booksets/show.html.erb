@@ -37,9 +37,7 @@
 		<table border="0">
 			<tr>
 				<td class="set_thumbnail_cell">
-				<% if listing.book.medium_image %>
-						<%=link_to (image_tag listing.book.small_image, :height => listing.book.small_image_height, :width =>	listing.book.small_image_width, :class => 'set_thumbnail'), :controller => "books", :action => :show, :id => listing.book %>
-				<% end %>
+				<%=link_to (image_tag listing.book.get_image("small"), :height => listing.book.small_image_height, :width =>	listing.book.small_image_width, :class => 'set_thumbnail'), :controller => "books", :action => :show, :id => listing.book %>
 				</td>
 				<td class="set_details_cell">
 					<div class="set_title"><%= listing.book.title %></div>

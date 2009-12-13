@@ -1,3 +1,5 @@
+require 'open-uri'
+
 class Booksearch < ActiveRecord::Base
   belongs_to :bookset
   belongs_to :user
@@ -35,17 +37,31 @@ class Booksearch < ActiveRecord::Base
       book.large_image_width = result.get('largeimage/width')
       book.save
       
-      # Booksearch.send_later(:download_book_cover, book)
+      Booksearch.send_later(:download_book_cover, book)
       @results.push book
     end
 
     @results
   end
 
-  def self.download_book_cover(book_id)
-    # Make sure the delayed_job gem is required
-    # Make sure the download dir is present
-    # Download the file
-    # Mark book record as downloaded so it's not searching amazon anymore
+  def self.download_book_cover(book)
+    # TODO - Write a migration to get covers for everyone.
+    found_image = false
+    [{:size => 'large', :image => book.large_image},
+     {:size => 'medium', :image => book.medium_image},
+     {:size => 'small', :image => book.small_image}].each do |i|
+       filename = /(\w|[-.])+$/.match(i[:image])
+       if (filename)
+         filename = filename[0]
+         f = open("#{RAILS_ROOT}/public/covers/#{i[:size]}/#{filename}", "wb")
+         f.write(open(i[:image]).read) 
+         f.close
+         
+         found_image = true
+         book["#{i[:size]}_cover"] = filename
+       end
+       book.has_cover = true
+       book.save if found_image
+    end
   end
 end
