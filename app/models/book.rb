@@ -1,3 +1,5 @@
+require 'open-uri'
+
 class Book < ActiveRecord::Base
   has_many :listings, :dependent => :destroy
   has_many :booksets, :through => :listings
@@ -20,7 +22,7 @@ class Book < ActiveRecord::Base
 
   def get_image(size)
     logger.info "COVER INFO FOR SIZE #{size} has? #{self.has_cover} and link #{self.medium_cover}"
-    if self.has_cover
+    if self.has_cover && !self["#{size}_cover"].nil?
       case size
       when "small" : return "/covers/small/#{self.small_cover}"
       when "medium" : return "/covers/medium/#{self.medium_cover}"
@@ -31,6 +33,31 @@ class Book < ActiveRecord::Base
     else
       # TODO Generate an awesome image.
       return "/images/default_covers/#{size}.png" 
+    end
+  end
+
+  def self.download_book_cover(book)
+    found_image = false
+    [{:size => 'large', :image => book.large_image},
+     {:size => 'medium', :image => book.medium_image},
+     {:size => 'small', :image => book.small_image}].each do |i|
+       filename = /(\w|[-.])+$/.match(i[:image])
+       if (filename)
+         filename = filename[0]
+         begin
+           f = open("#{RAILS_ROOT}/public/covers/#{i[:size]}/#{filename}", "wb")
+           #puts "Opening #{i[:image]}"
+           f.write(open(i[:image]).read) 
+           f.close
+         
+           found_image = true
+           book["#{i[:size]}_cover"] = filename
+         rescue
+           puts "Couldn't get the #{i[:size]} image for #{book.title}"
+         end
+       end
+       book.has_cover = true
+       book.save if found_image
     end
   end
 end
