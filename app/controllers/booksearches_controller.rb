@@ -41,7 +41,6 @@ class BooksearchesController < ApplicationController
     
     respond_to do |format|
       if @booksearch.save
-        flash[:notice] = 'Booksearch was successfully created.'
         format.html { redirect_to(@booksearch) }
         format.xml  { render :xml => @booksearch, :status => :created, :location => @booksearch }
       else
