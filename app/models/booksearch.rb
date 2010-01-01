@@ -2,7 +2,7 @@ class Booksearch < ActiveRecord::Base
   belongs_to :bookset
   belongs_to :user
   validates_presence_of     :keyword
-
+  
   def self.search_by_keyword(keyword)
     search_results = Amazon::Ecs.item_search(keyword, :response_group => 'ListmaniaLists,Medium', :sort => 'relevancerank')
     return [] if search_results.has_error? || !search_results

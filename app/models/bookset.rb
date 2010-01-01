@@ -7,4 +7,8 @@ class Bookset < ActiveRecord::Base
   
   cattr_reader :per_page
   @@per_page = 20
+  
+  def to_param
+    "#{title.parameterize}_#{id}"
+  end
 end

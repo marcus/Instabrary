@@ -11,7 +11,11 @@ class Book < ActiveRecord::Base
   def link
     the_link = "#{affiliate_link}besttoolforth-20"
   end
-    
+
+  def to_param
+    "#{title.parameterize}_#{id}"
+  end
+
   def user_statuses(user_id)
     book_statuses = []
     Status.find(:all).each do |status|

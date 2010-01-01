@@ -23,7 +23,7 @@ class BooksController < ApplicationController
     if(session[:user])
       @user = User.find(session[:user])
     end
-    @book = Book.find(params[:id])
+    @book = get_book
     @page_title = "#{@book.title} on Instabrary"
 
     @book_statuses = @book.user_statuses(session[:user]) if session[:user]
@@ -47,14 +47,13 @@ class BooksController < ApplicationController
 
   # GET /books/1/edit
   def edit
-    @book = Book.find(params[:id])
+    @book = get_book
   end
 
   # POST /books
   # POST /books.xml
   def create
-    #@book = Book.new(params[:book])
-    @book = Book.find(params[:book] )
+    @book = get_book
 
     respond_to do |format|
       if @book.save
@@ -73,7 +72,7 @@ class BooksController < ApplicationController
     if(session[:user])
       @user = User.find(session[:user])
     end
-    @book = Book.find(params[:id])
+    @book = get_book
     @book.rate(params[:stars], @user)
     
     respond_to do |format|
@@ -85,4 +84,9 @@ class BooksController < ApplicationController
     end
   end
   
+  private
+
+  def get_book
+    Book.find(params[:id].match(/_(\d+)\z/)[0])
+  end
 end

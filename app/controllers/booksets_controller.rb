@@ -106,6 +106,6 @@ class BooksetsController < ApplicationController
   
   private
   def get_bookset
-    @bookset = Bookset.find(params[:id])
+    @bookset = Bookset.find(params[:id].match(/_(\d+)\z/)[0])
   end
 end
