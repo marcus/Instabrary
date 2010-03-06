@@ -10,3 +10,4 @@ vendor/bundler_gems/gems
 vendor/bundler_gems/specifications
 public/avatars/
 public/covers/
+.bundle
