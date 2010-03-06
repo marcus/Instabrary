@@ -1,6 +1,7 @@
 gem "rails", "2.3.4"
 
 gem "amazon-ecs"
+gem "authlogic"
 #gem "delayed_job"
 gem "haml"
 gem "linguistics"
