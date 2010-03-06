@@ -35,7 +35,9 @@ class Booksearch < ActiveRecord::Base
       book.large_image_width = result.get('largeimage/width')
       book.save
       
-      Book.send_later(:download_book_cover, book)
+      #Book.send_later(:download_book_cover, book)
+      Book.download_book_cover(book)
+
       @results.push book
     end
 
