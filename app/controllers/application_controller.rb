@@ -28,4 +28,16 @@ class ApplicationController < ActionController::Base
       return true
     end
   end
+
+  def go_home
+      redirect_to :controller => 'booksets'
+  end
+
+  # VERY Rudimentary admin.
+  def is_admin?
+    return false if !session[:user]
+    u = User.find(session[:user])
+    return true if u && u.id == 1
+    false
+  end
 end

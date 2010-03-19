@@ -1,7 +1,4 @@
 class BooksController < ApplicationController
-  # GET /books
-  # GET /books.xml
-  
   def index
     if(params[:bookset_id])
       @bookset = Bookset.find(params[:bookset_id])
@@ -16,8 +13,6 @@ class BooksController < ApplicationController
     end
   end
 
-  # GET /books/1
-  # GET /books/1.xml
   def show
     # DRY finding user (before_filter or something similar)
     if(session[:user])
@@ -34,26 +29,24 @@ class BooksController < ApplicationController
     end
   end
 
-  # GET /books/new
-  # GET /books/new.xml
-  def new
-    @book = Book.new
-
-    respond_to do |format|
-      format.html # new.html.erb
-      format.xml  { render :xml => @book }
-    end
-  end
-
-  # GET /books/1/edit
   def edit
-    @book = get_book
+    if is_admin?
+      @book = get_book
+    else
+      go_home
+    end
   end
 
   # POST /books
   # POST /books.xml
   def create
-    @book = get_book
+    if is_admin?
+      @book = get_book
+    else
+      go_home
+    end
+
+    go_home if !@book
 
     respond_to do |format|
       if @book.save
@@ -67,11 +60,13 @@ class BooksController < ApplicationController
     end
   end
 
-
   def rate
     if(session[:user])
       @user = User.find(session[:user])
+    else
+      go_home
     end
+
     @book = get_book
     @book.rate(params[:stars], @user)
     

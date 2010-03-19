@@ -18,8 +18,10 @@ class ListingsController < ApplicationController
   # POST /listings
   # POST /listings.xml
   def create
-    @book = Book.find(params[:book] )
     @bookset = Bookset.find(params[:bookset])
+    go_home if !check_ownership(@bookset)
+
+    @book = Book.find(params[:book] )
     @listing = Listing.new
     @listing.book = @book
     @listing.bookset = @bookset

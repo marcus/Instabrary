@@ -1,6 +1,4 @@
 class BooksetsController < ApplicationController
-  # GET /booksets
-  # GET /booksets.xml
   before_filter :verify_logged_in, :only => [:new, :edit, :create, :update, :destroy]
   before_filter :get_bookset, :except => [:index, :new, :create]
   
@@ -19,8 +17,6 @@ class BooksetsController < ApplicationController
     end
   end
 
-  # GET /booksets/1
-  # GET /booksets/1.xml
   def show
     @page_title = "#{@bookset.title} on Instabrary"
     @booksearch = Booksearch.new
@@ -41,8 +37,6 @@ class BooksetsController < ApplicationController
     end
   end
 
-  # GET /booksets/new
-  # GET /booksets/new.xml
   def new
     @bookset = Bookset.new
     respond_to do |format|
@@ -51,7 +45,6 @@ class BooksetsController < ApplicationController
     end
   end
 
-  # GET /booksets/1/edit
   def edit    
     return unless check_ownership(@bookset)
   end

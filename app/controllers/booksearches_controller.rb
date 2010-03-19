@@ -1,7 +1,5 @@
 class BooksearchesController < ApplicationController
 
-  # GET /booksearches/1
-  # GET /booksearches/1.xml
   def show
     @booksearch = Booksearch.find(params[:id])
     @page_title = "Books matching #{@booksearch.keyword} on Instabrary"
@@ -13,8 +11,6 @@ class BooksearchesController < ApplicationController
     end
   end
 
-  # GET /booksearches/new
-  # GET /booksearches/new.xml
   def new
     @booksearch = Booksearch.new
     @booksearch.bookset_id = params[:bookset]
@@ -26,8 +22,6 @@ class BooksearchesController < ApplicationController
   end
 
 
-  # POST /booksearches
-  # POST /booksearches.xml
   def create
     if params[:booksearch]
       @booksearch = Booksearch.new(params[:booksearch])
@@ -49,7 +43,5 @@ class BooksearchesController < ApplicationController
       end
     end
   end
-  
-  private
   
 end
