@@ -25,7 +25,7 @@ class Book < ActiveRecord::Base
   end
 
   def get_image(size)
-    logger.info "COVER INFO FOR SIZE #{size} has? #{self.has_cover} and link #{self.medium_cover}"
+    # logger.info "COVER INFO FOR SIZE #{size} has? #{self.has_cover} and link #{self.medium_cover}"
     if self.has_cover && !self["#{size}_cover"].nil?
       case size
       when "small" : return "/covers/small/#{self.small_cover}"
@@ -50,14 +50,14 @@ class Book < ActiveRecord::Base
          filename = filename[0]
          begin
            f = open("#{RAILS_ROOT}/public/covers/#{i[:size]}/#{filename}", "wb")
-           #puts "Opening #{i[:image]}"
+           logger.info "Downloading book image #{i[:image]}"
            f.write(open(i[:image]).read) 
            f.close
-         
+
            found_image = true
            book["#{i[:size]}_cover"] = filename
          rescue
-           puts "Couldn't get the #{i[:size]} image for #{book.title}"
+           logger.info "Couldn't get the #{i[:size]} image for #{book.title}"
          end
        end
        book.has_cover = true
