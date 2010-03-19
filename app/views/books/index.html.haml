@@ -3,7 +3,7 @@
 - else
   %h1
     A concise list of the books in
-    = link_to @bookset.title, :controller => 'booksets', :id => @bookset
+    = link_to @bookset.title, :controller => 'booksets', :action => 'show', :id => @bookset
 
 %table
   %tr

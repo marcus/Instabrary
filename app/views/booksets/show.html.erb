@@ -16,7 +16,6 @@
 <% if session[:user] == @bookset.user.id %>
 <%= link_to "Edit this set", edit_bookset_path(@bookset) %> | <%=link_to "Add a book to this set", "#add"%> | 
 <% end %>
-<%= link_to "A concise view of this set", "./#{@bookset.id}/books" %>
 
 </p>
 <div id="book_set_details">
@@ -43,8 +42,8 @@
 					<div class="set_title"><%= listing.book.title %></div>
 					<div class="set_authors"><%= listing.book.authors %></div>
 					<% if listing.book.pages %><div class="set_pages"><%= listing.book.pages %> Pages</div><% end %>
-					<span class="set_show"><%= link_to "Book Details", :controller => "books", :action => :show, :id => listing.book %></span> | 
-					<span class="set_purchase"><%= link_to "Buy it on Amazon", listing.book.link %></span>
+					<span class="set_purchase"><%= link_to "Buy it on Amazon", listing.book.link %></span> |
+					<span class="set_show"><%= link_to "Book Details", :controller => "books", :action => :show, :id => listing.book %></span>
 
 					<% if session[:user] == @bookset.user.id %>
 						| <span class="set_remove_book"><%= link_to "Remove this book from the set",  {:controller => "listings", :action => :destroy, :id => listing}, :confirm => "Are you sure", :method => :delete %></span>
@@ -55,6 +54,8 @@
 	</li>
 <% end %>
 </ul>
+
+<%= link_to "A concise view of this set", "./#{@bookset.id}/books" %>
 
 <% if session[:user] == @bookset.user.id %>
 <a name="add" /><p><strong>Search for a book to add to this set:</strong>

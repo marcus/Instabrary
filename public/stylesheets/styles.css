@@ -92,10 +92,10 @@ a:hover {
 }
 
 h1 {
-	font-size: 14px;
-	font-weight: normal;
+	font-size: 17px;
+	font-weight: bold;
 	font-style: normal;
-	color: #000;
+	color: #007E7F;
 }
 
 h2 {
@@ -118,6 +118,10 @@ h3 {
 	float: right;
 	padding: 5px;
 	background-color: #e6f8f8;
+  border-bottom-left-radius: 4px 4px;
+  border-bottom-right-radius: 4px 4px;
+  border-top-left-radius: 4px 4px;
+  border-top-right-radius: 4px 4px;
 }
 #book_set_details h2, #book_details  h2 {
 	top: -33px;
@@ -154,8 +158,14 @@ h3 {
 	border: 1px solid #d0d3c4;
 	background-color: #fdfff0;
 	width: 650px;
+  border-bottom-left-radius: 4px 4px;
+  border-bottom-right-radius: 4px 4px;
+  border-top-left-radius: 4px 4px;
+  border-top-right-radius: 4px 4px;
 }
-
+.set_by {
+  font-style: italic;
+}
 #set_pagination {
 	clear: both;
 }
@@ -189,10 +199,14 @@ h3 {
 	
 }
 
-.set_purchase {
-	
+.set_purchase, .set_purchase a, .set_purchase a:active, .set_purchase a:visited {
+  background-color: #828282;
+  color: #ffffff;
+  padding: 1px;
 }
-
+.set_purchase a:hover {
+  color: #fff000;
+}
 /* @end */
 
 /* @group Homepage Display */
