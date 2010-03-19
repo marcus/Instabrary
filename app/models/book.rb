@@ -48,6 +48,7 @@ class Book < ActiveRecord::Base
        filename = /(\w|[-.])+$/.match(i[:image])
        if (filename)
          filename = filename[0]
+         logger.info "Current filename is #{filename[0]}"
          begin
            f = open("#{RAILS_ROOT}/public/covers/#{i[:size]}/#{filename}", "wb")
            logger.info "Downloading book image #{i[:image]}"
