@@ -30,10 +30,8 @@
     = link_to "logged in", '/login'
     , you could click lots of little buttons here!
 
-.book_pair
-  %span.book_attribute Title:
-  .book_property
-    = link_to @book.title, @book.link
+%h1.book_title 
+  = link_to @book.title, @book.link
 
 .book_pair
   %span.book_attribute Author:

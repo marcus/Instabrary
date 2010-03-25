@@ -279,7 +279,10 @@ h3 {
 .book_detail_image {
 	position: relative;
 }
-
+h1.book_title, .book_title a {
+  color: #007E7F;
+  text-decoration: none;
+}
 .book_pair {
 	margin-bottom: 10px;
 	border: 1px solid #c7c7c7;
